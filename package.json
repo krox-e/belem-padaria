@@ -1,0 +1,10 @@
+{
+  "name": "belem-padaria",
+  "version": "1.0.0",
+  "description": "Website oficial da Belém Pães e Doces - Desde 1987",
+  "main": "index.html",
+  "scripts": {
+    "dev": "node server.js",
+    "start": "node server.js"
+  }
+}

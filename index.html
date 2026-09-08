@@ -1,0 +1,3569 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Belém Pães e Doces | Tradição Desde 1987 | Fornada Artesanal</title>
+  <meta name="description" content="Belém Pães e Doces - Desde 1987 trazendo o melhor da panificação e confeitaria artesanal. Pães quentinhos, bolos para festas, salgados e doces finos. Peça pelo WhatsApp!" />
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/jpeg" href="images/ig_img_1.jpg" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Alex+Brush&display=swap" rel="stylesheet" />
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <style>
+    /* ==========================================================================
+       DESIGN TOKENS & RESET
+       ========================================================================== */
+    :root {
+      --bg-cream: #FCF9F4;
+      --bg-surface: #FFFFFF;
+      --bg-warm: #F7EFE3;
+      --bg-card: #FFFFFF;
+      
+      --primary-brown: #2E1A11;
+      --primary-brown-light: #4A2E20;
+      --primary-amber: #D6963E;
+      --primary-amber-hover: #BF8029;
+      --primary-gold: #F4BA53;
+      --primary-cream: #FFF7ED;
+      
+      --accent-red: #C53030;
+      --accent-green: #25D366;
+      --accent-green-dark: #1EBE5D;
+      
+      --text-dark: #22150E;
+      --text-muted: #786457;
+      --text-light: #A89587;
+      --text-white: #FFFFFF;
+      
+      --border-subtle: #EFE4D5;
+      --border-light: #F4ECE1;
+      
+      --shadow-sm: 0 2px 8px rgba(46, 26, 17, 0.05);
+      --shadow-md: 0 8px 24px rgba(46, 26, 17, 0.08);
+      --shadow-lg: 0 16px 40px rgba(46, 26, 17, 0.12);
+      --shadow-xl: 0 24px 60px rgba(46, 26, 17, 0.18);
+      
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 22px;
+      --radius-full: 9999px;
+      
+      --font-serif: 'Playfair Display', Georgia, serif;
+      --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      --font-script: 'Alex Brush', cursive;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      background-color: var(--bg-cream);
+      color: var(--text-dark);
+      line-height: 1.6;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    button, input, select, textarea {
+      font-family: inherit;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* Section scroll offset for sticky header */
+    section, #cardapio, #sobre, #festival, #encomendas, #instagram, #avaliacoes, #contato {
+      scroll-margin-top: 85px;
+    }
+
+    /* Container */
+    .container {
+      width: 96%;
+      max-width: 1760px;
+      margin-left: auto;
+      margin-right: auto;
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
+
+    /* ==========================================================================
+       TOP ANNOUNCEMENT BAR
+       ========================================================================== */
+    .top-bar {
+      background: var(--primary-brown);
+      color: var(--primary-cream);
+      font-size: 0.84rem;
+      padding: 0.65rem 1rem;
+      border-bottom: 1px solid rgba(244, 186, 83, 0.2);
+    }
+    .top-bar .container {
+      width: 98%;
+      max-width: 1820px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .top-bar-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-weight: 600;
+      color: var(--primary-gold);
+    }
+    .top-bar-badge .pulse-dot {
+      width: 8px;
+      height: 8px;
+      background-color: #22c55e;
+      border-radius: 50%;
+      box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7);
+      animation: pulse 1.8s infinite;
+    }
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7); }
+      70% { box-shadow: 0 0 0 8px rgba(34, 197, 94, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
+    }
+    .top-bar-links {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+    }
+    .top-bar-links a {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      color: rgba(255, 255, 255, 0.85);
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .top-bar-links a:hover {
+      color: var(--primary-gold);
+    }
+
+    /* ==========================================================================
+       NAVIGATION
+       ========================================================================== */
+    header.site-header {
+      position: sticky;
+      top: 0;
+      z-index: 900;
+      background: rgba(252, 249, 244, 0.94);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border-subtle);
+      transition: all 0.3s ease;
+    }
+    header.site-header.scrolled {
+      box-shadow: var(--shadow-md);
+      background: rgba(255, 255, 255, 0.98);
+    }
+    header.site-header .container {
+      width: 98%;
+      max-width: 1820px;
+    }
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 82px;
+    }
+    .brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+      text-decoration: none;
+    }
+    .brand-avatar {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      border: 2px solid var(--primary-amber);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      flex-shrink: 0;
+    }
+    .brand-avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+    }
+    .brand-name {
+      font-family: var(--font-serif);
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--primary-brown);
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+    }
+    .brand-name span {
+      color: var(--primary-amber);
+    }
+    .brand-tag {
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--primary-amber-hover);
+    }
+
+    nav.main-nav ul {
+      display: flex;
+      list-style: none;
+      gap: 1.8rem;
+      align-items: center;
+    }
+    nav.main-nav a {
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: var(--text-dark);
+      transition: color 0.2s ease;
+      position: relative;
+    }
+    nav.main-nav a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0%;
+      height: 2px;
+      background: var(--primary-amber);
+      transition: width 0.25s ease;
+    }
+    nav.main-nav a:hover {
+      color: var(--primary-amber);
+    }
+    nav.main-nav a:hover::after {
+      width: 100%;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.9rem;
+    }
+    .btn-cart {
+      position: relative;
+      background: var(--bg-warm);
+      border: 1px solid var(--border-subtle);
+      color: var(--primary-brown);
+      padding: 0.65rem 1.1rem;
+      border-radius: var(--radius-full);
+      font-size: 0.88rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: all 0.2s ease;
+    }
+    .btn-cart:hover {
+      background: #eee0cf;
+      transform: translateY(-1px);
+    }
+    .cart-badge {
+      background: var(--accent-red);
+      color: white;
+      font-size: 0.72rem;
+      font-weight: 800;
+      padding: 0.15rem 0.45rem;
+      border-radius: var(--radius-full);
+      min-width: 18px;
+      text-align: center;
+      line-height: 1;
+    }
+
+    .btn-nav-order {
+      background: linear-gradient(135deg, var(--primary-amber) 0%, var(--primary-amber-hover) 100%);
+      color: white;
+      padding: 0.65rem 1.35rem;
+      border-radius: var(--radius-full);
+      font-size: 0.88rem;
+      font-weight: 700;
+      box-shadow: 0 4px 14px rgba(214, 150, 62, 0.35);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: all 0.25s ease;
+    }
+    .btn-nav-order:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(214, 150, 62, 0.45);
+      background: linear-gradient(135deg, #e4a247 0%, #a86c1f 100%);
+    }
+
+    .hamburger-btn {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.4rem;
+      color: var(--primary-brown);
+      cursor: pointer;
+      padding: 0.4rem;
+    }
+
+    /* Mobile Nav Drawer */
+    .mobile-nav-drawer {
+      display: none;
+      position: fixed;
+      top: 78px;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(46, 26, 17, 0.6);
+      backdrop-filter: blur(4px);
+      z-index: 950;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+    .mobile-nav-drawer.active {
+      display: block;
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .mobile-nav-content {
+      background: var(--bg-cream);
+      padding: 2rem 1.5rem 2.5rem;
+      border-bottom: 3px solid var(--primary-amber);
+      transform: translateY(-20px);
+      transition: transform 0.3s ease;
+      box-shadow: var(--shadow-xl);
+    }
+    .mobile-nav-drawer.active .mobile-nav-content {
+      transform: translateY(0);
+    }
+    .mobile-nav-content ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+    .mobile-nav-content a {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--primary-brown);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    /* ==========================================================================
+       HERO SECTION
+       ========================================================================== */
+    .hero-section {
+      position: relative;
+      background:
+        radial-gradient(circle at 10% 20%, rgba(244, 186, 83, 0.14) 0%, transparent 45%),
+        radial-gradient(circle at 90% 80%, rgba(197, 48, 48, 0.06) 0%, transparent 40%),
+        linear-gradient(180deg, #FBF6EE 0%, #FAF0E2 100%);
+      padding: 4.5rem 0 5.5rem;
+      overflow: hidden;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.35fr 0.95fr;
+      gap: 6.5rem;
+      align-items: center;
+    }
+
+    .hero-tagline {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      background: #FFFFFF;
+      border: 1px solid var(--border-subtle);
+      padding: 0.4rem 1.1rem;
+      border-radius: var(--radius-full);
+      box-shadow: var(--shadow-sm);
+      margin-bottom: 1.5rem;
+    }
+    .hero-tagline .star-icon {
+      color: var(--primary-amber);
+      font-size: 0.85rem;
+    }
+    .hero-tagline span {
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--primary-brown);
+    }
+
+    .hero-title {
+      font-family: var(--font-serif);
+      font-size: clamp(3rem, 5.2vw, 4.8rem);
+      line-height: 1.1;
+      font-weight: 800;
+      color: var(--primary-brown);
+      margin-bottom: 1.5rem;
+      letter-spacing: -0.02em;
+    }
+    .hero-title em {
+      font-family: var(--font-script);
+      font-weight: 400;
+      font-size: 1.25em;
+      color: var(--primary-amber);
+      font-style: normal;
+      display: inline-block;
+      margin-left: 0.2rem;
+    }
+    .hero-desc {
+      font-size: 1.22rem;
+      color: var(--text-muted);
+      line-height: 1.85;
+      margin-bottom: 2.5rem;
+      max-width: 820px;
+    }
+    .hero-desc strong {
+      color: var(--primary-brown);
+    }
+
+    .hero-cta-group {
+      display: flex;
+      align-items: center;
+      gap: 1.2rem;
+      flex-wrap: wrap;
+      margin-bottom: 2.5rem;
+    }
+    .btn-hero-primary {
+      background: linear-gradient(135deg, var(--primary-amber) 0%, var(--primary-amber-hover) 100%);
+      color: white;
+      padding: 0.95rem 2.2rem;
+      border-radius: var(--radius-full);
+      font-size: 1rem;
+      font-weight: 700;
+      box-shadow: 0 8px 24px rgba(214, 150, 62, 0.4);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      transition: all 0.25s ease;
+    }
+    .btn-hero-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 30px rgba(214, 150, 62, 0.5);
+    }
+    .btn-hero-whatsapp {
+      background: var(--accent-green);
+      color: white;
+      padding: 0.95rem 2rem;
+      border-radius: var(--radius-full);
+      font-size: 1rem;
+      font-weight: 700;
+      box-shadow: 0 8px 24px rgba(37, 211, 102, 0.35);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      transition: all 0.25s ease;
+    }
+    .btn-hero-whatsapp:hover {
+      background: var(--accent-green-dark);
+      transform: translateY(-3px);
+      box-shadow: 0 12px 30px rgba(37, 211, 102, 0.45);
+    }
+
+    .hero-highlights-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .hero-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--primary-brown-light);
+    }
+    .hero-pill i {
+      color: var(--primary-amber);
+    }
+
+    /* IPHONE PREVIEW WRAPPER */
+    .hero-phone-container {
+      position: relative;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      padding-right: 1.5rem;
+    }
+    .phone-ambient-glow {
+      position: absolute;
+      width: 420px;
+      height: 420px;
+      background: radial-gradient(circle, rgba(214, 150, 62, 0.25) 0%, rgba(214, 150, 62, 0.05) 50%, transparent 70%);
+      border-radius: 50%;
+      filter: blur(25px);
+      z-index: 1;
+      animation: ambientPulse 5s ease-in-out infinite alternate;
+    }
+    @keyframes ambientPulse {
+      0% { transform: scale(0.9); opacity: 0.7; }
+      100% { transform: scale(1.15); opacity: 1; }
+    }
+
+    .iphone-frame {
+      position: relative;
+      z-index: 2;
+      width: 320px;
+      background: #111113;
+      border-radius: 48px;
+      padding: 10px;
+      box-shadow:
+        0 0 0 2px #3c3c3e,
+        0 25px 60px rgba(46, 26, 17, 0.45),
+        inset 0 0 0 2px #1f1f21;
+      animation: floatIphone 5s ease-in-out infinite alternate;
+    }
+    @keyframes floatIphone {
+      0% { transform: translateY(0px) rotate(0deg); }
+      100% { transform: translateY(-12px) rotate(0.6deg); }
+    }
+
+    /* Dynamic Island */
+    .iphone-dynamic-island {
+      position: absolute;
+      top: 15px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 96px;
+      height: 24px;
+      background: #000000;
+      border-radius: 20px;
+      z-index: 20;
+    }
+
+    .iphone-screen {
+      background: #FFFFFF;
+      border-radius: 40px;
+      overflow: hidden;
+      height: 600px;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      user-select: none;
+    }
+
+    /* Instagram In-Phone UI */
+    .ig-header-bar {
+      padding: 42px 14px 10px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid #f0f0f0;
+      background: #fff;
+    }
+    .ig-username-badge {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      font-weight: 700;
+      font-size: 0.88rem;
+      color: #000;
+    }
+    .ig-verified-tick {
+      color: #0095f6;
+      font-size: 0.8rem;
+    }
+    .ig-header-icons {
+      display: flex;
+      gap: 12px;
+      font-size: 1.1rem;
+      color: #262626;
+    }
+
+    .ig-scrollable-content {
+      overflow-y: auto;
+      flex: 1;
+      scrollbar-width: none;
+    }
+    .ig-scrollable-content::-webkit-scrollbar {
+      display: none;
+    }
+
+    .ig-profile-block {
+      padding: 12px 14px 8px;
+    }
+    .ig-row-stats {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 10px;
+    }
+    .ig-avatar-ring {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+      padding: 2px;
+      flex-shrink: 0;
+    }
+    .ig-avatar-inner {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      border: 2px solid #fff;
+      overflow: hidden;
+    }
+    .ig-avatar-inner img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .ig-numbers {
+      display: flex;
+      flex: 1;
+      justify-content: space-around;
+      text-align: center;
+    }
+    .ig-number-box .val {
+      font-weight: 700;
+      font-size: 0.92rem;
+      color: #000;
+      display: block;
+    }
+    .ig-number-box .lbl {
+      font-size: 0.68rem;
+      color: #737373;
+    }
+
+    .ig-bio-block {
+      margin-bottom: 12px;
+    }
+    .ig-bio-name {
+      font-weight: 700;
+      font-size: 0.82rem;
+      color: #000;
+    }
+    .ig-bio-category {
+      font-size: 0.72rem;
+      color: #737373;
+      margin-bottom: 2px;
+    }
+    .ig-bio-text {
+      font-size: 0.74rem;
+      line-height: 1.35;
+      color: #262626;
+    }
+    .ig-bio-link {
+      font-size: 0.74rem;
+      color: #00376b;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 3px;
+    }
+
+    .ig-action-buttons {
+      display: flex;
+      gap: 6px;
+      margin-bottom: 12px;
+    }
+    .ig-btn-follow {
+      flex: 1;
+      background: #0095f6;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      padding: 6px;
+      font-size: 0.76rem;
+      font-weight: 700;
+      cursor: pointer;
+    }
+    .ig-btn-msg {
+      flex: 1;
+      background: #efefef;
+      color: #000;
+      border: none;
+      border-radius: 8px;
+      padding: 6px;
+      font-size: 0.76rem;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    /* Highlights */
+    .ig-stories-list {
+      display: flex;
+      gap: 12px;
+      overflow-x: auto;
+      padding: 2px 2px 10px;
+      scrollbar-width: none;
+      border-bottom: 1px solid #f2f2f2;
+      margin-bottom: 8px;
+    }
+    .ig-stories-list::-webkit-scrollbar { display: none; }
+    .ig-story-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      flex-shrink: 0;
+      width: 52px;
+    }
+    .ig-story-ring {
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      border: 1.5px solid #dbdbdb;
+      padding: 2px;
+      margin-bottom: 3px;
+    }
+    .ig-story-inner {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      overflow: hidden;
+    }
+    .ig-story-inner img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .ig-story-name {
+      font-size: 0.64rem;
+      color: #262626;
+      max-width: 50px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    /* Grid of real photos */
+    .ig-posts-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+    }
+    .ig-post-thumb {
+      aspect-ratio: 1;
+      position: relative;
+      overflow: hidden;
+      background: #f0f0f0;
+    }
+    .ig-post-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+    .ig-post-thumb:hover img {
+      transform: scale(1.08);
+    }
+    .ig-post-type-icon {
+      position: absolute;
+      top: 4px;
+      right: 4px;
+      color: white;
+      font-size: 0.7rem;
+      text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+    }
+
+    /* IG Bottom bar */
+    .ig-footer-tabs {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      padding: 8px 0 14px;
+      border-top: 1px solid #f0f0f0;
+      background: #fff;
+      font-size: 1.15rem;
+      color: #000;
+    }
+    .ig-tiny-avatar {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 1px solid #000;
+    }
+    .ig-tiny-avatar img { width: 100%; height: 100%; object-fit: cover; }
+
+    /* Floating badge on phone */
+    .phone-floating-badge {
+      position: absolute;
+      bottom: -15px;
+      left: -20px;
+      background: #FFFFFF;
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 0.7rem 1.1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      box-shadow: var(--shadow-lg);
+      z-index: 10;
+      animation: floatBadge 4s ease-in-out infinite alternate;
+    }
+    @keyframes floatBadge {
+      0% { transform: translateY(0); }
+      100% { transform: translateY(-8px); }
+    }
+    .phone-floating-badge .badge-icon {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: #FFF1F2;
+      color: var(--accent-red);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+    }
+    .phone-floating-badge .badge-text h4 {
+      font-size: 0.82rem;
+      font-weight: 800;
+      color: var(--primary-brown);
+    }
+    .phone-floating-badge .badge-text p {
+      font-size: 0.7rem;
+      color: var(--text-muted);
+    }
+
+    /* ==========================================================================
+       STATS BAR STRIP
+       ========================================================================== */
+    .stats-strip {
+      background: var(--primary-brown);
+      color: white;
+      padding: 2rem 0;
+      position: relative;
+    }
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+      text-align: center;
+    }
+    .stat-box {
+      border-right: 1px solid rgba(255, 255, 255, 0.12);
+      padding: 0.5rem 1rem;
+    }
+    .stat-box:last-child {
+      border-right: none;
+    }
+    .stat-number {
+      font-family: var(--font-serif);
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: var(--primary-gold);
+      line-height: 1.1;
+      margin-bottom: 0.3rem;
+    }
+    .stat-label {
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.75);
+    }
+
+    /* ==========================================================================
+       SECTION COMMON STYLES
+       ========================================================================== */
+    section {
+      padding: 6rem 0;
+    }
+    .section-header {
+      text-align: center;
+      max-width: 850px;
+      margin: 0 auto 3.5rem;
+    }
+    .section-eyebrow {
+      display: inline-block;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--primary-amber);
+      margin-bottom: 0.6rem;
+    }
+    .section-title {
+      font-family: var(--font-serif);
+      font-size: clamp(2.2rem, 3.8vw, 3.4rem);
+      font-weight: 700;
+      color: var(--primary-brown);
+      line-height: 1.2;
+      margin-bottom: 1rem;
+    }
+    .section-desc {
+      font-size: 1.12rem;
+      color: var(--text-muted);
+      line-height: 1.8;
+    }
+    .gold-divider {
+      width: 70px;
+      height: 3px;
+      background: var(--primary-amber);
+      border-radius: var(--radius-full);
+      margin: 1.2rem auto 0;
+    }
+
+    /* ==========================================================================
+       SOBRE NÓS (HISTÓRIA DESDE 1987)
+       ========================================================================== */
+    .about-section {
+      background: var(--bg-surface);
+      border-bottom: 1px solid var(--border-subtle);
+    }
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.15fr;
+      gap: 5.5rem;
+      align-items: center;
+    }
+    .about-media {
+      position: relative;
+    }
+    .about-main-img {
+      width: 100%;
+      height: 480px;
+      object-fit: cover;
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-lg);
+      border: 3px solid white;
+    }
+    .about-secondary-card {
+      position: absolute;
+      bottom: -25px;
+      right: -25px;
+      width: 220px;
+      background: white;
+      border-radius: var(--radius-md);
+      padding: 1rem;
+      box-shadow: var(--shadow-xl);
+      border: 1px solid var(--border-subtle);
+    }
+    .about-secondary-card img {
+      width: 100%;
+      height: 140px;
+      object-fit: cover;
+      border-radius: var(--radius-sm);
+      margin-bottom: 0.6rem;
+    }
+    .about-secondary-card p {
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--primary-brown);
+      text-align: center;
+    }
+
+    .about-seal {
+      position: absolute;
+      top: -20px;
+      left: -20px;
+      width: 110px;
+      height: 110px;
+      background: var(--primary-brown);
+      color: var(--primary-gold);
+      border-radius: 50%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      box-shadow: var(--shadow-lg);
+      border: 3px solid var(--primary-gold);
+    }
+    .about-seal .year {
+      font-family: var(--font-serif);
+      font-size: 1.5rem;
+      font-weight: 700;
+      line-height: 1;
+    }
+    .about-seal .text {
+      font-size: 0.58rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: white;
+      margin-top: 2px;
+    }
+
+    .about-content h2 {
+      font-family: var(--font-serif);
+      font-size: clamp(1.8rem, 3.2vw, 2.5rem);
+      color: var(--primary-brown);
+      line-height: 1.25;
+      margin-bottom: 1.3rem;
+    }
+    .about-content p {
+      color: var(--text-muted);
+      line-height: 1.8;
+      margin-bottom: 1.2rem;
+      font-size: 1.02rem;
+    }
+    .about-pillars {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.2rem;
+      margin-top: 2rem;
+    }
+    .pillar-card {
+      background: var(--bg-warm);
+      border-radius: var(--radius-md);
+      padding: 1.1rem;
+      border: 1px solid var(--border-subtle);
+    }
+    .pillar-card i {
+      font-size: 1.4rem;
+      color: var(--primary-amber);
+      margin-bottom: 0.5rem;
+      display: block;
+    }
+    .pillar-card h4 {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--primary-brown);
+      margin-bottom: 0.2rem;
+    }
+    .pillar-card p {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      margin-bottom: 0;
+      line-height: 1.5;
+    }
+
+    /* ==========================================================================
+       FESTIVAL DE MORANGOS (BANNER ESPECIAL)
+       ========================================================================== */
+    .strawberry-banner {
+      background: linear-gradient(135deg, #4A0E17 0%, #7A1724 60%, #9E1F30 100%);
+      color: white;
+      padding: 4.5rem 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .strawberry-banner::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: radial-gradient(circle at 80% 30%, rgba(255, 120, 140, 0.25) 0%, transparent 50%);
+      pointer-events: none;
+    }
+    .strawberry-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.95fr;
+      gap: 5rem;
+      align-items: center;
+      position: relative;
+      z-index: 2;
+    }
+    .strawberry-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(255, 255, 255, 0.18);
+      backdrop-filter: blur(8px);
+      padding: 0.35rem 1.1rem;
+      border-radius: var(--radius-full);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #FFD2D8;
+      margin-bottom: 1.2rem;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+    }
+    .strawberry-title {
+      font-family: var(--font-serif);
+      font-size: clamp(2.2rem, 4vw, 3.2rem);
+      font-weight: 800;
+      line-height: 1.15;
+      margin-bottom: 1.2rem;
+    }
+    .strawberry-title span {
+      color: #FFC0CB;
+    }
+    .strawberry-desc {
+      font-size: 1.08rem;
+      line-height: 1.75;
+      color: rgba(255, 255, 255, 0.9);
+      margin-bottom: 2rem;
+      max-width: 520px;
+    }
+    .strawberry-btn {
+      background: #FFFFFF;
+      color: #7A1724;
+      padding: 0.95rem 2.2rem;
+      border-radius: var(--radius-full);
+      font-weight: 800;
+      font-size: 1rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+      transition: all 0.25s ease;
+    }
+    .strawberry-btn:hover {
+      transform: translateY(-3px);
+      background: #FFF0F2;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+    }
+    .strawberry-cards-wrap {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.2rem;
+    }
+    .strawberry-card {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      transition: transform 0.3s ease;
+    }
+    .strawberry-card:hover {
+      transform: translateY(-5px);
+    }
+    .strawberry-card img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+    }
+    .strawberry-card-body {
+      padding: 0.9rem;
+    }
+    .strawberry-card-body h4 {
+      font-size: 0.95rem;
+      font-weight: 700;
+      margin-bottom: 0.25rem;
+    }
+    .strawberry-card-body p {
+      font-size: 0.78rem;
+      color: rgba(255, 255, 255, 0.8);
+      line-height: 1.4;
+    }
+
+    /* ==========================================================================
+       CARDÁPIO COMPLETO & INTERATIVO (#cardapio)
+       ========================================================================== */
+    .menu-section {
+      background: var(--bg-cream);
+      position: relative;
+    }
+    .menu-search-wrapper {
+      max-width: 460px;
+      margin: 0 auto 2.5rem;
+      position: relative;
+    }
+    .menu-search-input {
+      width: 100%;
+      background: white;
+      border: 2px solid var(--border-subtle);
+      border-radius: var(--radius-full);
+      padding: 0.85rem 1.4rem 0.85rem 3rem;
+      font-size: 0.95rem;
+      color: var(--text-dark);
+      outline: none;
+      box-shadow: var(--shadow-sm);
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .menu-search-input:focus {
+      border-color: var(--primary-amber);
+      box-shadow: 0 0 0 4px rgba(214, 150, 62, 0.15);
+    }
+    .menu-search-wrapper i {
+      position: absolute;
+      left: 1.2rem;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-light);
+      font-size: 1.05rem;
+    }
+
+    /* Category Tabs */
+    .menu-tabs {
+      display: flex;
+      justify-content: center;
+      gap: 0.75rem;
+      margin-bottom: 3.5rem;
+      flex-wrap: wrap;
+    }
+    .menu-tab-btn {
+      background: white;
+      border: 1.5px solid var(--border-subtle);
+      color: var(--text-dark);
+      font-weight: 700;
+      font-size: 0.92rem;
+      padding: 0.7rem 1.4rem;
+      border-radius: var(--radius-full);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      box-shadow: var(--shadow-sm);
+      transition: all 0.2s ease;
+    }
+    .menu-tab-btn:hover {
+      border-color: var(--primary-amber);
+      color: var(--primary-amber-hover);
+      transform: translateY(-1px);
+    }
+    .menu-tab-btn.active {
+      background: var(--primary-brown);
+      border-color: var(--primary-brown);
+      color: white;
+      box-shadow: 0 4px 14px rgba(46, 26, 17, 0.25);
+    }
+    .menu-tab-btn.active i {
+      color: var(--primary-gold);
+    }
+
+    /* Product Grid */
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 2.2rem;
+    }
+    .product-card {
+      background: white;
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-light);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      position: relative;
+    }
+    .product-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-lg);
+      border-color: rgba(214, 150, 62, 0.3);
+    }
+    .product-img-wrap {
+      position: relative;
+      height: 220px;
+      overflow: hidden;
+      background: #F8F4EE;
+    }
+    .product-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+    .product-card:hover .product-img-wrap img {
+      transform: scale(1.06);
+    }
+    .product-badge-tag {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      background: rgba(46, 26, 17, 0.85);
+      backdrop-filter: blur(6px);
+      color: var(--primary-gold);
+      font-size: 0.68rem;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.3rem 0.75rem;
+      border-radius: var(--radius-full);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    }
+    .product-badge-special {
+      background: var(--accent-red);
+      color: white;
+    }
+
+    .product-body {
+      padding: 1.3rem 1.4rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+    .product-category-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--primary-amber);
+      margin-bottom: 0.3rem;
+    }
+    .product-name {
+      font-family: var(--font-serif);
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--primary-brown);
+      margin-bottom: 0.45rem;
+      line-height: 1.3;
+    }
+    .product-description {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin-bottom: 1.3rem;
+      flex: 1;
+    }
+
+    .product-card-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 1rem;
+      border-top: 1px solid var(--border-light);
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+    .product-status-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      font-size: 0.76rem;
+      font-weight: 700;
+      color: var(--primary-brown);
+      background: var(--bg-warm);
+      padding: 0.35rem 0.75rem;
+      border-radius: var(--radius-full);
+      border: 1px solid var(--border-subtle);
+      white-space: nowrap;
+    }
+    .status-dot {
+      width: 7px;
+      height: 7px;
+      background: #22c55e;
+      border-radius: 50%;
+      box-shadow: 0 0 0 2px rgba(34, 197, 94, 0.25);
+    }
+
+    .btn-order-lp {
+      background: linear-gradient(135deg, #25D366 0%, #1da851 100%);
+      color: white !important;
+      text-decoration: none;
+      padding: 0.65rem 1.15rem;
+      border-radius: var(--radius-full);
+      font-size: 0.84rem;
+      font-weight: 800;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+    .btn-order-lp:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(37, 211, 102, 0.45);
+      background: linear-gradient(135deg, #28e06c 0%, #169344 100%);
+    }
+
+    .btn-job-header {
+      background: rgba(214, 150, 62, 0.15);
+      border: 1.5px solid var(--primary-amber);
+      color: var(--primary-brown) !important;
+      text-decoration: none;
+      padding: 0.6rem 1.2rem;
+      border-radius: var(--radius-full);
+      font-size: 0.85rem;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      transition: all 0.2s ease;
+    }
+    .btn-job-header:hover {
+      background: var(--primary-amber);
+      color: white !important;
+      transform: translateY(-1px);
+      box-shadow: 0 6px 18px rgba(214, 150, 62, 0.45);
+    }
+    .btn-add-cart.added {
+      background: #16a34a;
+    }
+
+    /* ==========================================================================
+       SIMULADOR DE ENCOMENDAS & BOLOS PERSONALIZADOS
+       ========================================================================== */
+    .custom-order-section {
+      background: var(--bg-surface);
+      border-top: 1px solid var(--border-subtle);
+      border-bottom: 1px solid var(--border-subtle);
+    }
+    .custom-order-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.15fr;
+      gap: 5.5rem;
+      align-items: center;
+    }
+    .custom-order-form {
+      background: var(--bg-warm);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 2.2rem;
+      box-shadow: var(--shadow-md);
+    }
+    .form-group {
+      margin-bottom: 1.2rem;
+    }
+    .form-group label {
+      display: block;
+      font-size: 0.84rem;
+      font-weight: 700;
+      color: var(--primary-brown);
+      margin-bottom: 0.4rem;
+    }
+    .form-control {
+      width: 100%;
+      background: white;
+      border: 1.5px solid var(--border-subtle);
+      border-radius: var(--radius-sm);
+      padding: 0.75rem 1rem;
+      font-size: 0.92rem;
+      color: var(--text-dark);
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .form-control:focus {
+      border-color: var(--primary-amber);
+    }
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+    .btn-calc-order {
+      width: 100%;
+      background: var(--primary-brown);
+      color: var(--primary-gold);
+      border: none;
+      border-radius: var(--radius-full);
+      padding: 0.95rem;
+      font-size: 0.95rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+      box-shadow: var(--shadow-md);
+      transition: all 0.2s ease;
+      margin-top: 0.5rem;
+    }
+    .btn-calc-order:hover {
+      background: var(--primary-brown-light);
+      transform: translateY(-2px);
+    }
+
+    /* ==========================================================================
+       INSTAGRAM FEED SHOWCASE (AUTÊNTICO)
+       ========================================================================== */
+    .instagram-section {
+      background: var(--bg-cream);
+    }
+    .ig-showcase-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      margin-bottom: 2.5rem;
+      background: white;
+      padding: 1.4rem 2rem;
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-subtle);
+      box-shadow: var(--shadow-sm);
+    }
+    .ig-showcase-user {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .ig-showcase-avatar {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      border: 2px solid var(--primary-amber);
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+    .ig-showcase-avatar img { width: 100%; height: 100%; object-fit: cover; }
+    .ig-showcase-info h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--primary-brown);
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .ig-showcase-info p {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+    .btn-ig-follow {
+      background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+      color: white;
+      padding: 0.65rem 1.5rem;
+      border-radius: var(--radius-full);
+      font-size: 0.88rem;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      box-shadow: 0 4px 14px rgba(220, 39, 67, 0.3);
+      transition: all 0.25s ease;
+    }
+    .btn-ig-follow:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 22px rgba(220, 39, 67, 0.45);
+    }
+
+    .ig-feed-gallery {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.2rem;
+    }
+    .ig-feed-item {
+      position: relative;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      aspect-ratio: 1;
+      box-shadow: var(--shadow-sm);
+      background: #EDE2D4;
+    }
+    .ig-feed-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.45s ease;
+    }
+    .ig-feed-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(46, 26, 17, 0.72);
+      backdrop-filter: blur(3px);
+      opacity: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      gap: 0.5rem;
+      transition: opacity 0.3s ease;
+      padding: 1rem;
+      text-align: center;
+    }
+    .ig-feed-item:hover .ig-feed-overlay {
+      opacity: 1;
+    }
+    .ig-feed-item:hover img {
+      transform: scale(1.08);
+    }
+    .ig-feed-overlay i {
+      font-size: 1.6rem;
+      color: var(--primary-gold);
+    }
+    .ig-feed-overlay span {
+      font-size: 0.82rem;
+      font-weight: 600;
+    }
+
+    /* ==========================================================================
+       AVALIAÇÕES & DEPOIMENTOS
+       ========================================================================== */
+    .reviews-section {
+      background: var(--bg-surface);
+      border-top: 1px solid var(--border-subtle);
+    }
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+    .review-card {
+      background: var(--bg-warm);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+      box-shadow: var(--shadow-sm);
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .review-stars {
+      color: var(--primary-amber);
+      font-size: 0.95rem;
+      margin-bottom: 1rem;
+    }
+    .review-text {
+      font-size: 0.96rem;
+      line-height: 1.75;
+      color: var(--text-dark);
+      margin-bottom: 1.5rem;
+      font-style: italic;
+    }
+    .review-author {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+    .review-avatar-char {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--primary-brown);
+      color: var(--primary-gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-family: var(--font-serif);
+      font-size: 1.1rem;
+    }
+    .review-author-info h4 {
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: var(--primary-brown);
+    }
+    .review-author-info span {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    /* ==========================================================================
+       HORÁRIOS & LOCALIZAÇÃO
+       ========================================================================== */
+    .location-section {
+      background: var(--bg-cream);
+    }
+    .location-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.15fr;
+      gap: 5rem;
+      align-items: start;
+    }
+    .location-card {
+      background: white;
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 2.2rem;
+      box-shadow: var(--shadow-sm);
+    }
+    .location-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 1.2rem;
+      margin-bottom: 1.8rem;
+    }
+    .location-icon {
+      width: 46px;
+      height: 46px;
+      border-radius: var(--radius-md);
+      background: var(--bg-warm);
+      color: var(--primary-amber-hover);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.25rem;
+      flex-shrink: 0;
+    }
+    .location-text h4 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--primary-brown);
+      margin-bottom: 0.25rem;
+    }
+    .location-text p {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+    .hours-badge {
+      display: inline-block;
+      background: #DCFCE7;
+      color: #15803D;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 0.25rem 0.65rem;
+      border-radius: var(--radius-full);
+      margin-top: 0.4rem;
+    }
+
+    .faq-wrapper {
+      background: white;
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 2.2rem;
+      box-shadow: var(--shadow-sm);
+    }
+    .faq-wrapper h3 {
+      font-family: var(--font-serif);
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--primary-brown);
+      margin-bottom: 1.2rem;
+    }
+    .faq-item {
+      border-bottom: 1px solid var(--border-light);
+      padding: 1rem 0;
+    }
+    .faq-item:last-child {
+      border-bottom: none;
+    }
+    .faq-question {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--primary-brown);
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .faq-answer {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      margin-top: 0.5rem;
+      line-height: 1.6;
+      display: none;
+    }
+    .faq-item.active .faq-answer {
+      display: block;
+    }
+    .faq-item.active .faq-question i {
+      transform: rotate(180deg);
+    }
+
+    /* ==========================================================================
+       FOOTER
+       ========================================================================== */
+    footer.site-footer {
+      background: #1C100A;
+      color: rgba(255, 255, 255, 0.75);
+      padding: 5rem 0 2rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr 1.2fr;
+      gap: 3rem;
+      padding-bottom: 3.5rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .footer-brand h2 {
+      font-family: var(--font-serif);
+      font-size: 1.6rem;
+      color: white;
+      margin-bottom: 0.8rem;
+    }
+    .footer-brand h2 span {
+      color: var(--primary-gold);
+    }
+    .footer-brand p {
+      font-size: 0.9rem;
+      line-height: 1.7;
+      color: rgba(255, 255, 255, 0.6);
+      margin-bottom: 1.5rem;
+    }
+    .footer-socials {
+      display: flex;
+      gap: 0.8rem;
+    }
+    .footer-social-btn {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 1.1rem;
+      transition: all 0.2s ease;
+    }
+    .footer-social-btn:hover {
+      background: var(--primary-amber);
+      border-color: var(--primary-amber);
+      transform: translateY(-2px);
+    }
+
+    .footer-col h4 {
+      color: white;
+      font-size: 1.05rem;
+      font-weight: 700;
+      margin-bottom: 1.3rem;
+      position: relative;
+    }
+    .footer-col h4::after {
+      content: '';
+      position: absolute;
+      bottom: -6px;
+      left: 0;
+      width: 28px;
+      height: 2px;
+      background: var(--primary-amber);
+    }
+    .footer-col ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+    .footer-col a {
+      font-size: 0.88rem;
+      color: rgba(255, 255, 255, 0.65);
+      transition: color 0.2s;
+    }
+    .footer-col a:hover {
+      color: var(--primary-gold);
+    }
+
+    .footer-bottom {
+      padding-top: 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      font-size: 0.82rem;
+      color: rgba(255, 255, 255, 0.45);
+    }
+
+    /* ==========================================================================
+       SIDEBAR DRAWER: CARRINHO / PEDIDO
+       ========================================================================== */
+    .cart-drawer-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(4px);
+      z-index: 1000;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+    .cart-drawer-overlay.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .cart-drawer {
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      width: 100%;
+      max-width: 440px;
+      background: white;
+      z-index: 1001;
+      box-shadow: -10px 0 35px rgba(0, 0, 0, 0.3);
+      display: flex;
+      flex-direction: column;
+      transform: translateX(100%);
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .cart-drawer.active {
+      transform: translateX(0);
+    }
+    .cart-header {
+      padding: 1.4rem 1.6rem;
+      border-bottom: 1px solid var(--border-subtle);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: var(--bg-warm);
+    }
+    .cart-header h3 {
+      font-family: var(--font-serif);
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--primary-brown);
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+    .btn-close-cart {
+      background: none;
+      border: none;
+      font-size: 1.4rem;
+      color: var(--text-dark);
+      cursor: pointer;
+      padding: 0.3rem;
+    }
+
+    .cart-items-scroll {
+      flex: 1;
+      overflow-y: auto;
+      padding: 1.4rem;
+    }
+    .cart-empty-state {
+      text-align: center;
+      padding: 3.5rem 1.5rem;
+      color: var(--text-muted);
+    }
+    .cart-empty-state i {
+      font-size: 3rem;
+      color: var(--border-subtle);
+      margin-bottom: 1rem;
+    }
+    .cart-item-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.9rem 0;
+      border-bottom: 1px solid var(--border-light);
+      gap: 1rem;
+    }
+    .cart-item-info h4 {
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: var(--primary-brown);
+    }
+    .cart-item-info p {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+    .cart-qty-ctrls {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--bg-warm);
+      border-radius: var(--radius-full);
+      padding: 0.25rem 0.6rem;
+    }
+    .btn-qty {
+      background: none;
+      border: none;
+      font-weight: 800;
+      font-size: 0.9rem;
+      color: var(--primary-brown);
+      cursor: pointer;
+      width: 20px;
+      height: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .cart-qty-val {
+      font-size: 0.85rem;
+      font-weight: 700;
+      min-width: 16px;
+      text-align: center;
+    }
+
+    .cart-footer {
+      padding: 1.4rem 1.6rem;
+      background: var(--bg-warm);
+      border-top: 1px solid var(--border-subtle);
+    }
+    .cart-subtotal-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: var(--primary-brown);
+      margin-bottom: 1.2rem;
+    }
+    .cart-subtotal-val {
+      font-family: var(--font-serif);
+      font-size: 1.45rem;
+      color: var(--primary-amber-hover);
+    }
+    .cart-inputs-block {
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      margin-bottom: 1rem;
+    }
+    .cart-input {
+      width: 100%;
+      background: white;
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-sm);
+      padding: 0.65rem 0.9rem;
+      font-size: 0.85rem;
+      outline: none;
+    }
+    .btn-checkout-whatsapp {
+      width: 100%;
+      background: var(--accent-green);
+      color: white;
+      border: none;
+      border-radius: var(--radius-full);
+      padding: 0.95rem;
+      font-size: 0.95rem;
+      font-weight: 800;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+      box-shadow: 0 4px 14px rgba(37, 211, 102, 0.35);
+      transition: all 0.2s ease;
+    }
+    .btn-checkout-whatsapp:hover {
+      background: var(--accent-green-dark);
+      transform: translateY(-2px);
+    }
+
+    /* ==========================================================================
+       WHATSAPP FLOAT BUTTON
+       ========================================================================== */
+    .floating-whatsapp {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      z-index: 850;
+      width: 62px;
+      height: 62px;
+      background: #25D366;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 1.8rem;
+      box-shadow: 0 6px 24px rgba(37, 211, 102, 0.45);
+      transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    .floating-whatsapp:hover {
+      transform: scale(1.1) rotate(5deg);
+      box-shadow: 0 10px 30px rgba(37, 211, 102, 0.6);
+    }
+    .whatsapp-tooltip {
+      position: absolute;
+      right: 74px;
+      background: var(--primary-brown);
+      color: white;
+      padding: 0.45rem 0.95rem;
+      border-radius: var(--radius-full);
+      font-size: 0.82rem;
+      font-weight: 700;
+      white-space: nowrap;
+      box-shadow: var(--shadow-md);
+      opacity: 0;
+      transform: translateX(10px);
+      pointer-events: none;
+      transition: all 0.25s ease;
+    }
+    .floating-whatsapp:hover .whatsapp-tooltip {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    /* Toast Notification */
+    .toast-message {
+      position: fixed;
+      bottom: 95px;
+      right: 24px;
+      background: var(--primary-brown);
+      color: white;
+      padding: 0.85rem 1.4rem;
+      border-radius: var(--radius-md);
+      font-size: 0.88rem;
+      font-weight: 600;
+      box-shadow: var(--shadow-xl);
+      z-index: 1100;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      transform: translateY(30px);
+      opacity: 0;
+      pointer-events: none;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .toast-message.show {
+      transform: translateY(0);
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .toast-message i {
+      color: #22c55e;
+      font-size: 1.1rem;
+    }
+
+    /* ==========================================================================
+       RESPONSIVE BREAKPOINTS
+       ========================================================================== */
+    @media (max-width: 1024px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 4rem;
+      }
+      .hero-desc {
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .hero-cta-group, .hero-highlights-pills {
+        justify-content: center;
+      }
+      .about-grid, .strawberry-grid, .custom-order-grid, .location-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+      .about-secondary-card {
+        right: 0;
+      }
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 2.5rem;
+      }
+      .reviews-grid {
+        grid-template-columns: 1fr;
+      }
+      .ig-feed-gallery {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+      }
+      .stat-box:nth-child(2) {
+        border-right: none;
+      }
+    }
+
+    @media (max-width: 768px) {
+      nav.main-nav {
+        display: none;
+      }
+      .hamburger-btn {
+        display: block;
+      }
+      .top-bar-links {
+        display: none;
+      }
+      .btn-nav-order {
+        display: none;
+      }
+      .brand-name {
+        font-size: 1.15rem;
+      }
+      .brand-avatar {
+        width: 40px;
+        height: 40px;
+      }
+      .strawberry-cards-wrap {
+        grid-template-columns: 1fr;
+      }
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+      .stats-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+      .iphone-frame {
+        width: 270px;
+      }
+      .iphone-screen {
+        height: 500px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ==========================================================================
+       TOP ANNOUNCEMENT BAR
+       ========================================================================== -->
+  <div class="top-bar">
+    <div class="container">
+      <div class="top-bar-badge">
+        <span class="pulse-dot"></span>
+        <span>Fornada fresca saindo a cada 2 horas! Tradicional Desde 1987</span>
+      </div>
+      <div class="top-bar-links">
+        <a href="trabalhe-conosco.html" style="background:rgba(214,150,62,0.22);border:1px solid var(--primary-gold);padding:0.25rem 0.9rem;border-radius:50px;color:var(--primary-gold);display:inline-flex;align-items:center;gap:0.4rem">
+          <i class="fas fa-bullhorn"></i> Estamos Contratando: Balconista →
+        </a>
+        <a href="tel:4733053975"><i class="fas fa-phone"></i> (47) 3305-3975</a>
+        <a href="https://www.instagram.com/_belempaesedoces/" target="_blank"><i class="fab fa-instagram"></i> @_belempaesedoces</a>
+        <span><i class="far fa-clock"></i> Seg a Sáb: 06h às 19h30</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       SITE HEADER / NAVIGATION
+       ========================================================================== -->
+  <header class="site-header" id="header">
+    <div class="container">
+      <div class="nav-inner">
+        <!-- Logo -->
+        <a href="#inicio" class="brand-logo">
+          <div class="brand-avatar">
+            <img src="images/ig_img_1.jpg" alt="Logo Belém Pães e Doces" />
+          </div>
+          <div class="brand-text">
+            <div class="brand-name">Belém <span>Pães & Doces</span></div>
+            <div class="brand-tag">Desde 1987 • Artesanal</div>
+          </div>
+        </a>
+
+        <!-- Desktop Menu -->
+        <nav class="main-nav">
+          <ul>
+            <li><a href="#inicio">Início</a></li>
+            <li><a href="#sobre">História</a></li>
+            <li><a href="#cardapio">Cardápio</a></li>
+            <li><a href="#festival">Festival de Morangos</a></li>
+            <li><a href="#encomendas">Sob Encomenda</a></li>
+            <li><a href="#instagram">Galeria</a></li>
+            <li><a href="#contato">Localização</a></li>
+            <li>
+              <a href="trabalhe-conosco.html" style="color:var(--primary-amber);font-weight:700;display:inline-flex;align-items:center;gap:0.35rem">
+                <span style="background:var(--primary-amber);color:white;font-size:0.65rem;padding:0.15rem 0.45rem;border-radius:4px;font-weight:800;letter-spacing:0.04em">VAGA</span>
+                Balconista
+              </a>
+            </li>
+          </ul>
+        </nav>
+
+        <!-- Actions: Jobs & WhatsApp -->
+        <div class="nav-actions">
+          <a href="trabalhe-conosco.html" class="btn-job-header">
+            <i class="fas fa-id-badge"></i> Vaga Balconista
+          </a>
+          
+          <a href="https://wa.me/554733053975?text=Olá!%20Vim%20pelo%20site%20da%20Belém%20Pães%20e%20Doces%20e%20gostaria%20de%20fazer%20um%20pedido." target="_blank" class="btn-nav-order">
+            <i class="fab fa-whatsapp"></i> Falar no WhatsApp
+          </a>
+
+          <button class="hamburger-btn" id="mobileMenuBtn" onclick="toggleMobileNav()" aria-label="Abrir Menu">
+            <i class="fas fa-bars"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Nav Drawer -->
+  <div class="mobile-nav-drawer" id="mobileNavDrawer" onclick="toggleMobileNav()">
+    <div class="mobile-nav-content" onclick="event.stopPropagation()">
+      <ul>
+        <li><a href="#inicio" onclick="toggleMobileNav()">Início <i class="fas fa-chevron-right"></i></a></li>
+        <li><a href="#sobre" onclick="toggleMobileNav()">Nossa História Desde 1987 <i class="fas fa-chevron-right"></i></a></li>
+        <li><a href="#cardapio" onclick="toggleMobileNav()">Cardápio Completo <i class="fas fa-chevron-right"></i></a></li>
+        <li><a href="#festival" onclick="toggleMobileNav()">Festival de Morangos <i class="fas fa-chevron-right"></i></a></li>
+        <li><a href="#encomendas" onclick="toggleMobileNav()">Bolos e Encomendas <i class="fas fa-chevron-right"></i></a></li>
+        <li><a href="#instagram" onclick="toggleMobileNav()">Instagram Oficial <i class="fas fa-chevron-right"></i></a></li>
+        <li><a href="#avaliacoes" onclick="toggleMobileNav()">Depoimentos <i class="fas fa-chevron-right"></i></a></li>
+        <li><a href="#contato" onclick="toggleMobileNav()">Horários & Contato <i class="fas fa-chevron-right"></i></a></li>
+        <li><a href="trabalhe-conosco.html" style="color:var(--primary-amber)"><i class="fas fa-bullhorn"></i> Vaga: Balconista (Trabalhe Conosco) <i class="fas fa-chevron-right"></i></a></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       HERO SECTION WITH FLOATING INTERACTIVE IPHONE INSTAGRAM PREVIEW
+       ========================================================================== -->
+  <section class="hero-section" id="inicio">
+    <div class="container">
+      <div class="hero-grid">
+        
+        <!-- Left: Text & Pitch -->
+        <div class="hero-text-col">
+          <div class="hero-tagline">
+            <i class="fas fa-star star-icon"></i>
+            <span>38+ Anos de Tradição e Sabor • Desde 1987</span>
+          </div>
+
+          <h1 class="hero-title">
+            Em cada receita, uma pitada de <em>amor</em>
+          </h1>
+
+          <p class="hero-desc">
+            Da nossa fornada artesanal quentinha direto para a sua mesa. Pães crocantes de fermentação natural, bolos recheados inesquecíveis, doces finos e salgados fritos e assados feitos diariamente com carinho e tradição familiar.
+          </p>
+
+          <div class="hero-cta-group">
+            <a href="#cardapio" class="btn-hero-primary">
+              <i class="fas fa-utensils"></i> Explorar Cardápio
+            </a>
+            <a href="https://wa.me/554733053975?text=Olá!%20Gostaria%20de%20fazer%20uma%20encomenda%20na%20Belém%20Pães%20e%20Doces." target="_blank" class="btn-hero-whatsapp">
+              <i class="fab fa-whatsapp"></i> Pedir no WhatsApp
+            </a>
+          </div>
+
+          <div class="hero-highlights-pills">
+            <div class="hero-pill"><i class="fas fa-check-circle"></i> Fornada a cada 2h</div>
+            <div class="hero-pill"><i class="fas fa-check-circle"></i> Bolos Personalizados</div>
+            <div class="hero-pill"><i class="fas fa-check-circle"></i> Ingredientes Selecionados</div>
+            <div class="hero-pill"><i class="fas fa-check-circle"></i> Entrega & Retirada</div>
+          </div>
+        </div>
+
+        <!-- Right: Realistic iPhone 15 Pro with Real Instagram of @_belempaesedoces -->
+        <div class="hero-phone-container">
+          <div class="phone-ambient-glow"></div>
+
+          <div class="iphone-frame">
+            <div class="iphone-dynamic-island"></div>
+            
+            <div class="iphone-screen">
+              <!-- Top App Bar -->
+              <div class="ig-header-bar">
+                <div class="ig-username-badge">
+                  <span>_belempaesedoces</span>
+                  <i class="fas fa-check-circle ig-verified-tick" title="Oficial"></i>
+                </div>
+                <div class="ig-header-icons">
+                  <i class="far fa-plus-square"></i>
+                  <i class="far fa-paper-plane"></i>
+                </div>
+              </div>
+
+              <!-- Scrollable Profile -->
+              <div class="ig-scrollable-content">
+                <div class="ig-profile-block">
+                  <!-- Row: Avatar + Stats -->
+                  <div class="ig-row-stats">
+                    <div class="ig-avatar-ring">
+                      <div class="ig-avatar-inner">
+                        <img src="images/ig_img_1.jpg" alt="Foto perfil Instagram Belém Pães e Doces" />
+                      </div>
+                    </div>
+                    <div class="ig-numbers">
+                      <div class="ig-number-box">
+                        <span class="val">378</span>
+                        <span class="lbl">posts</span>
+                      </div>
+                      <div class="ig-number-box">
+                        <span class="val">5.467</span>
+                        <span class="lbl">seguidores</span>
+                      </div>
+                      <div class="ig-number-box">
+                        <span class="val">1.842</span>
+                        <span class="lbl">seguindo</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Bio -->
+                  <div class="ig-bio-block">
+                    <div class="ig-bio-name">BELÉM PÃES E DOCES</div>
+                    <div class="ig-bio-category">Padaria & Confeitaria Artesanal</div>
+                    <div class="ig-bio-text">
+                      ❤️✨ Em cada receita uma pitada de amor ✨❤️<br>
+                      🥖 Pães artesanais & bolos finos<br>
+                      📍 Tradição Desde 1987<br>
+                      Orçamentos & encomendas 👇
+                    </div>
+                    <a href="https://wa.me/554733053975" target="_blank" class="ig-bio-link">
+                      <i class="fas fa-link"></i> wa.me/554733053975
+                    </a>
+                  </div>
+
+                  <!-- Follow / Action buttons -->
+                  <div class="ig-action-buttons">
+                    <a href="https://www.instagram.com/_belempaesedoces/" target="_blank" class="ig-btn-follow" style="text-align:center;text-decoration:none">
+                      Seguir
+                    </a>
+                    <a href="https://wa.me/554733053975" target="_blank" class="ig-btn-msg" style="text-align:center;text-decoration:none">
+                      Mensagem
+                    </a>
+                  </div>
+
+                  <!-- Highlights Stories -->
+                  <div class="ig-stories-list">
+                    <div class="ig-story-item">
+                      <div class="ig-story-ring">
+                        <div class="ig-story-inner">
+                          <img src="images/ig_img_2.jpg" alt="Destaque Bolos" />
+                        </div>
+                      </div>
+                      <span class="ig-story-name">Bolos 🎂</span>
+                    </div>
+
+                    <div class="ig-story-item">
+                      <div class="ig-story-ring">
+                        <div class="ig-story-inner">
+                          <img src="images/ig_img_3.jpg" alt="Destaque Clientes" />
+                        </div>
+                      </div>
+                      <span class="ig-story-name">Clientes ❤️</span>
+                    </div>
+
+                    <div class="ig-story-item">
+                      <div class="ig-story-ring">
+                        <div class="ig-story-inner">
+                          <img src="images/ig_img_4.jpg" alt="Festival de Morangos" />
+                        </div>
+                      </div>
+                      <span class="ig-story-name">Festival 🍓</span>
+                    </div>
+
+                    <div class="ig-story-item">
+                      <div class="ig-story-ring">
+                        <div class="ig-story-inner">
+                          <img src="images/ig_img_6.jpg" alt="Desde 1987" />
+                        </div>
+                      </div>
+                      <span class="ig-story-name">História 🥖</span>
+                    </div>
+                  </div>
+
+                  <!-- Real Posts Grid -->
+                  <div class="ig-posts-grid">
+                    <div class="ig-post-thumb">
+                      <img src="images/ig_img_4.jpg" alt="Festival de Morangos post" />
+                      <i class="fas fa-play ig-post-type-icon"></i>
+                    </div>
+                    <div class="ig-post-thumb">
+                      <img src="images/ig_img_5.jpg" alt="Doces gourmet post" />
+                      <i class="fas fa-play ig-post-type-icon"></i>
+                    </div>
+                    <div class="ig-post-thumb">
+                      <img src="images/ig_img_6.jpg" alt="Belém Pães e Doces Desde 1987" />
+                    </div>
+                    <div class="ig-post-thumb">
+                      <img src="images/ig_img_7.jpg" alt="Sobremesas e bolos post" />
+                      <i class="fas fa-play ig-post-type-icon"></i>
+                    </div>
+                    <div class="ig-post-thumb">
+                      <img src="images/ig_img_8.jpg" alt="Pães e salgados post" />
+                    </div>
+                    <div class="ig-post-thumb">
+                      <img src="images/ig_img_9.jpg" alt="Fornada de pães post" />
+                      <i class="fas fa-play ig-post-type-icon"></i>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+
+              <!-- IG Bottom Bar -->
+              <div class="ig-footer-tabs">
+                <i class="fas fa-home"></i>
+                <i class="fas fa-search"></i>
+                <i class="far fa-plus-square"></i>
+                <i class="far fa-heart"></i>
+                <div class="ig-tiny-avatar">
+                  <img src="images/ig_img_1.jpg" alt="avatar" />
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Floating badge tag -->
+          <div class="phone-floating-badge">
+            <div class="badge-icon">
+              <i class="fas fa-heart"></i>
+            </div>
+            <div class="badge-text">
+              <h4>Amado pela Comunidade</h4>
+              <p>5.4k+ apaixonados por pães</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       STATS STRIP
+       ========================================================================== */
+  <div class="stats-strip">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-box">
+          <div class="stat-number">38+</div>
+          <div class="stat-label">Anos de Tradição (1987)</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-number">5.4k+</div>
+          <div class="stat-label">Seguidores no Instagram</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-number">100%</div>
+          <div class="stat-label">Receitas Artesanais</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-number">5.0 ★</div>
+          <div class="stat-label">Avaliação dos Clientes</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       SOBRE NÓS (HISTÓRIA DESDE 1987)
+       ========================================================================== -->
+  <section class="about-section" id="sobre">
+    <div class="container">
+      <div class="about-grid">
+        
+        <!-- Images / Heritage media -->
+        <div class="about-media">
+          <div class="about-seal">
+            <span class="year">1987</span>
+            <span class="text">Desde</span>
+          </div>
+          <img src="images/ig_img_6.jpg" alt="História da Belém Pães e Doces Desde 1987" class="about-main-img" />
+          
+          <div class="about-secondary-card">
+            <img src="images/ig_img_8.jpg" alt="Pães e doces artesanais saindo do forno" />
+            <p>Fornada fresquinha feita com amor</p>
+          </div>
+        </div>
+
+        <!-- Text content -->
+        <div class="about-content">
+          <span class="section-eyebrow">Tradição & Afeto</span>
+          <h2>A receita certa para momentos especiais</h2>
+          <p>
+            Fundada em <strong>1987</strong>, a <strong>Belém Pães e Doces</strong> nasceu de uma paixão genuína pela panificação artesanal e pela magia de reunir famílias ao redor de uma mesa farta e acolhedora.
+          </p>
+          <p>
+            Ao longo de quase quatro décadas, mantivemos intactos os nossos valores: matérias-primas nobres, paciência nos tempos de fermentação, receitas que passam de geração em geração e, acima de tudo, o lema que nos guia: <em>"Em cada receita, uma pitada de amor"</em>.
+          </p>
+          <p>
+            Seja para o pão quentinho do café da manhã, para aquele salgado no lanche da tarde ou para o bolo que será a estrela da sua festa de aniversário, você tem a certeza de um sabor inconfundível.
+          </p>
+
+          <div class="about-pillars">
+            <div class="pillar-card">
+              <i class="fas fa-bread-slice"></i>
+              <h4>Fermentação Cuidada</h4>
+              <p>Textura leve, casquinha dourada crocante e miolo aveludado.</p>
+            </div>
+            <div class="pillar-card">
+              <i class="fas fa-award"></i>
+              <h4>Padrão de Excelência</h4>
+              <p>Mais de 38 anos de confiança conquistada família por família.</p>
+            </div>
+            <div class="pillar-card">
+              <i class="fas fa-birthday-cake"></i>
+              <h4>Confeitaria Criativa</h4>
+              <p>Bolos temáticos, tortas doces e sobremesas gourmet.</p>
+            </div>
+            <div class="pillar-card">
+              <i class="fas fa-hands-helping"></i>
+              <h4>Atendimento Familiar</h4>
+              <p>Recebemos cada cliente como alguém querido em nossa casa.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       FESTIVAL DE MORANGOS (DESTAQUE ESPECIAL DO INSTAGRAM)
+       ========================================================================== -->
+  <section class="strawberry-banner" id="festival">
+    <div class="container">
+      <div class="strawberry-grid">
+        <div>
+          <div class="strawberry-badge">
+            <i class="fas fa-fire"></i> Destaque da Semana
+          </div>
+          <h2 class="strawberry-title">
+            Festival de Morangos<br><span>Doces que encantam!</span>
+          </h2>
+          <p class="strawberry-desc">
+            Sextas e sábados especiais com morangos frescos selecionados! Delicie-se com nossas tortas nevadas de ninho com morango, taças gourmets, bombons de morango e sobremesas que são sucesso absoluto no nosso Instagram.
+          </p>
+          <a href="https://wa.me/554733053975?text=Olá!%20Gostaria%20de%20encomendar%20as%20delícias%20do%20Festival%20de%20Morangos!" target="_blank" class="strawberry-btn">
+            <i class="fab fa-whatsapp"></i> Reservar Sobremesa de Morango
+          </a>
+        </div>
+
+        <div class="strawberry-cards-wrap">
+          <div class="strawberry-card">
+            <img src="images/ig_img_4.jpg" alt="Torta e sobremesa do Festival de Morangos" />
+            <div class="strawberry-card-body">
+              <h4>Taça & Torta de Morango</h4>
+              <p>Cremosa, com morangos frescos e ganache especial da casa.</p>
+            </div>
+          </div>
+          <div class="strawberry-card">
+            <img src="images/ig_img_7.jpg" alt="Bolos especiais para o Dia dos Pais e festas" />
+            <div class="strawberry-card-body">
+              <h4>Bolo Especial de Frutas</h4>
+              <p>Montado no capricho para suas comemorações de família.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       CARDÁPIO COMPLETO COM PEDIDO ONLINE & WHATSAPP
+       ========================================================================== -->
+  <section class="menu-section" id="cardapio">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-eyebrow">Sabores Artesanais</span>
+        <h2 class="section-title">Nosso Cardápio</h2>
+        <p class="section-desc">
+          Conheça as fornadas e delícias artesanais preparadas diariamente na nossa casa. Faça seu pedido ou consulte disponibilidade direto pelo nosso WhatsApp!
+        </p>
+        <div class="gold-divider"></div>
+      </div>
+
+      <!-- Live search -->
+      <div class="menu-search-wrapper">
+        <i class="fas fa-search"></i>
+        <input type="text" id="menuSearchInput" class="menu-search-input" placeholder="Buscar por produto... (ex: pão francês, brigadeiro, coxinha)" oninput="filterMenu()" />
+      </div>
+
+      <!-- Category Filter Tabs -->
+      <div class="menu-tabs">
+        <button class="menu-tab-btn active" onclick="setCategory('all', this)">
+          <i class="fas fa-th-large"></i> Todos os Itens
+        </button>
+        <button class="menu-tab-btn" onclick="setCategory('paes', this)">
+          <i class="fas fa-bread-slice"></i> Pães & Padaria
+        </button>
+        <button class="menu-tab-btn" onclick="setCategory('bolos', this)">
+          <i class="fas fa-birthday-cake"></i> Bolos & Tortas
+        </button>
+        <button class="menu-tab-btn" onclick="setCategory('doces', this)">
+          <i class="fas fa-cookie"></i> Doces & Confeitaria
+        </button>
+        <button class="menu-tab-btn" onclick="setCategory('salgados', this)">
+          <i class="fas fa-pizza-slice"></i> Salgados & Lanches
+        </button>
+        <button class="menu-tab-btn" onclick="setCategory('cafes', this)">
+          <i class="fas fa-coffee"></i> Cafés & Bebidas
+        </button>
+      </div>
+
+      <!-- Products Grid (Dynamically Populated via JS) -->
+      <div class="menu-grid" id="productsGrid">
+        <!-- Products will be generated here -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       SIMULADOR DE ENCOMENDAS PARA FESTAS & BOLOS
+       ========================================================================== -->
+  <section class="custom-order-section" id="encomendas">
+    <div class="container">
+      <div class="custom-order-grid">
+        
+        <div>
+          <span class="section-eyebrow">Personalizado Para Você</span>
+          <h2 class="section-title" style="text-align:left;margin-bottom:1rem">
+            Encomende o bolo dos seus sonhos
+          </h2>
+          <p class="section-desc" style="text-align:left;margin-bottom:1.5rem">
+            Aniversários, casamentos, mesversários ou eventos corporativos: fazemos bolos decorados com temas personalizados, recheios fartos e apresentação impecável.
+          </p>
+
+          <div style="display:flex;flex-direction:column;gap:1rem;margin-bottom:2rem">
+            <div style="display:flex;align-items:center;gap:0.8rem">
+              <i class="fas fa-check" style="color:var(--primary-amber);font-size:1.1rem"></i>
+              <span style="font-weight:600">Recheios clássicos: Ninho com Morango, Brigadeiro Belga, Quatro Leites</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:0.8rem">
+              <i class="fas fa-check" style="color:var(--primary-amber);font-size:1.1rem"></i>
+              <span style="font-weight:600">Massa fofinha e molhadinha na medida certa</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:0.8rem">
+              <i class="fas fa-check" style="color:var(--primary-amber);font-size:1.1rem"></i>
+              <span style="font-weight:600">Decoração em chantininho aveludado, flores e topos personalizados</span>
+            </div>
+          </div>
+
+          <div style="background:var(--bg-warm);padding:1.2rem;border-radius:var(--radius-md);border-left:4px solid var(--primary-amber)">
+            <p style="font-size:0.88rem;color:var(--primary-brown-light);margin:0">
+              <strong>Dica:</strong> Recomendamos solicitar com no mínimo 24h a 48h de antecedência para garantir a melhor data e acabamento.
+            </p>
+          </div>
+        </div>
+
+        <!-- Interactive Quote Form -->
+        <div class="custom-order-form">
+          <h3 style="font-family:var(--font-serif);font-size:1.4rem;color:var(--primary-brown);margin-bottom:1.2rem;display:flex;align-items:center;gap:0.5rem">
+            <i class="fas fa-calculator" style="color:var(--primary-amber)"></i> Simular Orçamento de Bolo
+          </h3>
+
+          <form id="cakeQuoteForm" onsubmit="handleCakeQuote(event)">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="quoteGuests">Tamanho / Pessoas:</label>
+                <select id="quoteGuests" class="form-control" required>
+                  <option value="Aprox. 10 a 15 pessoas (1.5 kg)">10 a 15 pessoas (~1,5 kg)</option>
+                  <option value="Aprox. 20 a 25 pessoas (2.5 kg)" selected>20 a 25 pessoas (~2,5 kg)</option>
+                  <option value="Aprox. 30 a 35 pessoas (3.5 kg)">30 a 35 pessoas (~3,5 kg)</option>
+                  <option value="Aprox. 40 a 50 pessoas (5.0 kg)">40 a 50 pessoas (~5,0 kg)</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="quoteDough">Massa da sua preferência:</label>
+                <select id="quoteDough" class="form-control" required>
+                  <option value="Baunilha fofinha">Baunilha tradicional</option>
+                  <option value="Chocolate 50% cacau">Chocolate 50% cacau</option>
+                  <option value="Massa Mista (Baunilha + Chocolate)">Mista (Baunilha + Cacau)</option>
+                  <option value="Red Velvet aveludada">Red Velvet</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="quoteFilling">Recheio Principal:</label>
+                <select id="quoteFilling" class="form-control" required>
+                  <option value="Leite Ninho com Morangos Frescos">Ninho com Morangos Frescos</option>
+                  <option value="Brigadeiro Gourmet Belga">Brigadeiro Gourmet Belga</option>
+                  <option value="Doce de Leite com Nozes Nobres">Doce de Leite com Nozes</option>
+                  <option value="Quatro Leites Cremoso">Quatro Leites Artesanal</option>
+                  <option value="Nutella com Bombom Ouro Branco">Nutella com Bombom</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="quoteDate">Data Desejada:</label>
+                <input type="date" id="quoteDate" class="form-control" required />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="quoteNotes">Observações / Tema da Decoração:</label>
+              <textarea id="quoteNotes" class="form-control" rows="2" placeholder="Ex: Bolo de aniversário com topo de morangos e escrita dourada 'Parabéns Maria'"></textarea>
+            </div>
+
+            <button type="submit" class="btn-calc-order">
+              <i class="fab fa-whatsapp"></i> Enviar Solicitação para o WhatsApp
+            </button>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       INSTAGRAM OFICIAL (@_belempaesedoces)
+       ========================================================================== -->
+  <section class="instagram-section" id="instagram">
+    <div class="container">
+      
+      <div class="ig-showcase-bar">
+        <div class="ig-showcase-user">
+          <div class="ig-showcase-avatar">
+            <img src="images/ig_img_1.jpg" alt="Avatar @_belempaesedoces" />
+          </div>
+          <div class="ig-showcase-info">
+            <h3>@_belempaesedoces <i class="fas fa-check-circle" style="color:#0095f6;font-size:0.9rem"></i></h3>
+            <p>5.467 seguidores • Acompanhe nossas fornadas diárias e promoções</p>
+          </div>
+        </div>
+
+        <a href="https://www.instagram.com/_belempaesedoces/" target="_blank" class="btn-ig-follow">
+          <i class="fab fa-instagram"></i> Ver Perfil Completo
+        </a>
+      </div>
+
+      <div class="ig-feed-gallery">
+        <a href="https://www.instagram.com/_belempaesedoces/" target="_blank" class="ig-feed-item">
+          <img src="images/ig_img_4.jpg" alt="Festival de Morangos" />
+          <div class="ig-feed-overlay">
+            <i class="fab fa-instagram"></i>
+            <span>Festival de Morangos</span>
+          </div>
+        </a>
+
+        <a href="https://www.instagram.com/_belempaesedoces/" target="_blank" class="ig-feed-item">
+          <img src="images/ig_img_5.jpg" alt="Sobremesas e doces artesanais" />
+          <div class="ig-feed-overlay">
+            <i class="fab fa-instagram"></i>
+            <span>Doces & Confeitaria</span>
+          </div>
+        </a>
+
+        <a href="https://www.instagram.com/_belempaesedoces/" target="_blank" class="ig-feed-item">
+          <img src="images/ig_img_6.jpg" alt="Belém Pães e Doces Desde 1987" />
+          <div class="ig-feed-overlay">
+            <i class="fab fa-instagram"></i>
+            <span>Desde 1987</span>
+          </div>
+        </a>
+
+        <a href="https://www.instagram.com/_belempaesedoces/" target="_blank" class="ig-feed-item">
+          <img src="images/ig_img_7.jpg" alt="Bolos com morango especiais" />
+          <div class="ig-feed-overlay">
+            <i class="fab fa-instagram"></i>
+            <span>Bolos Festivos</span>
+          </div>
+        </a>
+
+        <a href="https://www.instagram.com/_belempaesedoces/" target="_blank" class="ig-feed-item">
+          <img src="images/ig_img_8.jpg" alt="Pães quentinhos e doces" />
+          <div class="ig-feed-overlay">
+            <i class="fab fa-instagram"></i>
+            <span>Fornada do Dia</span>
+          </div>
+        </a>
+
+        <a href="https://www.instagram.com/_belempaesedoces/" target="_blank" class="ig-feed-item">
+          <img src="images/ig_img_9.jpg" alt="Pães artesanais especiais" />
+          <div class="ig-feed-overlay">
+            <i class="fab fa-instagram"></i>
+            <span>Pães Artesanais</span>
+          </div>
+        </a>
+
+        <a href="https://www.instagram.com/_belempaesedoces/" target="_blank" class="ig-feed-item">
+          <img src="images/ig_img_10.jpg" alt="Produção de panificação artesanal" />
+          <div class="ig-feed-overlay">
+            <i class="fab fa-instagram"></i>
+            <span>Feito com Amor</span>
+          </div>
+        </a>
+
+        <a href="https://www.instagram.com/_belempaesedoces/" target="_blank" class="ig-feed-item">
+          <img src="images/ig_img_14.jpg" alt="Delícias no balcão" />
+          <div class="ig-feed-overlay">
+            <i class="fab fa-instagram"></i>
+            <span>Balcão Sempre Cheio</span>
+          </div>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       AVALIAÇÕES & PROVA SOCIAL
+       ========================================================================== -->
+  <section class="reviews-section" id="avaliacoes">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-eyebrow">Carinho dos Clientes</span>
+        <h2 class="section-title">Quem experimenta, ama e volta sempre</h2>
+        <p class="section-desc">Mais de três décadas cultivando relações de amizade e confiança com nossos clientes.</p>
+        <div class="gold-divider"></div>
+      </div>
+
+      <div class="reviews-grid">
+        <div class="review-card">
+          <div class="review-stars">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+          </div>
+          <p class="review-text">
+            "Os pães da Belém são incomparáveis! Aquela casquinha crocante e o miolo macio que lembra o café da tarde na casa de vó. O atendimento é sempre um show de simpatia!"
+          </p>
+          <div class="review-author">
+            <div class="review-avatar-char">M</div>
+            <div class="review-author-info">
+              <h4>Márcia Silveira</h4>
+              <span>Cliente Fiel há 12 anos</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="review-card">
+          <div class="review-stars">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+          </div>
+          <p class="review-text">
+            "Encomendei o bolo de aniversário do meu filho com recheio de ninho e morango do Festival de Morangos. Ficou surreal de gostoso e lindo! Todos os convidados pediram o contato."
+          </p>
+          <div class="review-author">
+            <div class="review-avatar-char">F</div>
+            <div class="review-author-info">
+              <h4>Felipe Albuquerque</h4>
+              <span>Joinville / SC</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="review-card">
+          <div class="review-stars">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+          </div>
+          <p class="review-text">
+            "A coxinha com catupiry e os croissants são divinos! Passo quase todo fim de tarde para levar pão quentinho e um doce para o café. Parabéns pela história linda desde 1987!"
+          </p>
+          <div class="review-author">
+            <div class="review-avatar-char">C</div>
+            <div class="review-author-info">
+              <h4>Camila Rocha</h4>
+              <span>Moradora do bairro</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       HORÁRIOS, LOCALIZAÇÃO & FAQ
+       ========================================================================== -->
+  <section class="location-section" id="contato">
+    <div class="container">
+      <div class="location-grid">
+        
+        <!-- Address & Working hours -->
+        <div class="location-card">
+          <h3 style="font-family:var(--font-serif);font-size:1.6rem;color:var(--primary-brown);margin-bottom:1.5rem">
+            Venha nos Visitar
+          </h3>
+
+          <div class="location-item">
+            <div class="location-icon">
+              <i class="fas fa-clock"></i>
+            </div>
+            <div class="location-text">
+              <h4>Horário de Funcionamento</h4>
+              <p>Segunda a Sábado: <strong>06:00 às 19:30</strong></p>
+              <p>Domingos & Feriados: <strong>07:00 às 12:30</strong></p>
+              <span class="hours-badge"><i class="fas fa-check"></i> Aberto com fornada fresca</span>
+            </div>
+          </div>
+
+          <div class="location-item">
+            <div class="location-icon">
+              <i class="fab fa-whatsapp"></i>
+            </div>
+            <div class="location-text">
+              <h4>WhatsApp & Telefone</h4>
+              <p><strong>(47) 3305-3975</strong></p>
+              <p>Atendimento rápido para pedidos e encomendas</p>
+            </div>
+          </div>
+
+          <div class="location-item">
+            <div class="location-icon">
+              <i class="fab fa-instagram"></i>
+            </div>
+            <div class="location-text">
+              <h4>Instagram Oficial</h4>
+              <p><strong>@_belempaesedoces</strong></p>
+              <p>Stories diários com os lançamentos do dia</p>
+            </div>
+          </div>
+
+          <a href="https://wa.me/554733053975?text=Olá!%20Gostaria%20de%20tirar%20uma%20dúvida%20sobre%20o%20atendimento." target="_blank" class="btn-hero-whatsapp" style="width:100%;justify-content:center;margin-top:1rem">
+            <i class="fab fa-whatsapp"></i> Iniciar Conversa no WhatsApp
+          </a>
+        </div>
+
+        <!-- FAQ Accordion -->
+        <div class="faq-wrapper">
+          <h3>Dúvidas Frequentes</h3>
+
+          <div class="faq-item active" onclick="toggleFaq(this)">
+            <div class="faq-question">
+              <span>Vocês fazem entrega (delivery)?</span>
+              <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+              Sim! Realizamos entregas na região sob consulta de disponibilidade e taxa de entrega. Você também pode solicitar pelo WhatsApp e retirar direto no nosso balcão com tudo pronto e embalado.
+            </div>
+          </div>
+
+          <div class="faq-item" onclick="toggleFaq(this)">
+            <div class="faq-question">
+              <span>Com quanta antecedência devo encomendar bolos?</span>
+              <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+              Para bolos temáticos personalizados e kits festas grandes, recomendamos solicitar com 24 a 48 horas de antecedência. Para bolos caseiros do dia a dia, temos opções prontas no balcão diariamente!
+            </div>
+          </div>
+
+          <div class="faq-item" onclick="toggleFaq(this)">
+            <div class="faq-question">
+              <span>Quais são as formas de pagamento aceitas?</span>
+              <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+              Aceitamos Pix (chave instantânea), cartões de crédito e débito de todas as bandeiras, além de dinheiro em espécie.
+            </div>
+          </div>
+
+          <div class="faq-item" onclick="toggleFaq(this)">
+            <div class="faq-question">
+              <span>Como funciona o Festival de Morangos?</span>
+              <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+              O Festival de Morangos é um evento especial que realizamos com receitas exclusivas de tortas, merengues, bolos e sobremesas com morangos frescos. Acompanhe as datas em nosso Instagram @_belempaesedoces!
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       BANNER DE OPORTUNIDADE: VAGA DE BALCONISTA
+       ========================================================================== -->
+  <section class="hiring-lp-banner" style="background: linear-gradient(135deg, #2E1A11 0%, #170A04 100%); color: white; padding: 4.5rem 0; border-top: 1px solid var(--border-subtle); position: relative; overflow: hidden;">
+    <div class="container" style="position: relative; z-index: 2;">
+      <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 2rem;">
+        <div style="max-width: 780px;">
+          <div style="display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(244, 186, 83, 0.15); border: 1px solid var(--primary-gold); padding: 0.35rem 1rem; border-radius: var(--radius-full); font-size: 0.78rem; font-weight: 700; text-transform: uppercase; color: var(--primary-gold); margin-bottom: 1rem;">
+            <i class="fas fa-bullhorn"></i> Oportunidade de Trabalho
+          </div>
+          <h2 style="font-family: var(--font-serif); font-size: clamp(1.8rem, 3.2vw, 2.5rem); margin-bottom: 0.8rem; line-height: 1.2;">
+            Faça Parte da Nossa Equipe: <span style="color: var(--primary-gold);">Vaga de Balconista!</span>
+          </h2>
+          <p style="font-size: 1.05rem; color: #E2D3C4; line-height: 1.7; margin-bottom: 0;">
+            Gosta de lidar com pessoas, tem simpatia e procura um ambiente acolhedor com mais de 38 anos de história? Conheça como é o dia a dia na Belém e envie sua candidatura!
+          </p>
+        </div>
+        <div>
+          <a href="trabalhe-conosco.html" style="background: var(--primary-amber); color: #22150E; font-weight: 800; padding: 1.05rem 2.2rem; border-radius: var(--radius-full); text-decoration: none; display: inline-flex; align-items: center; gap: 0.6rem; font-size: 1rem; box-shadow: 0 6px 20px rgba(214, 150, 62, 0.4); transition: all 0.25s ease;">
+            <i class="fas fa-briefcase"></i> Conhecer a Vaga & Rotina <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       FOOTER
+       ========================================================================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        
+        <div class="footer-brand">
+          <h2>Belém <span>Pães & Doces</span></h2>
+          <p>
+            Desde 1987 alimentando a tradição e o carinho com pães quentinhos, bolos caseiros e confeitaria fina artesanal.
+          </p>
+          <div class="footer-socials">
+            <a href="https://www.instagram.com/_belempaesedoces/" target="_blank" class="footer-social-btn" aria-label="Instagram">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://wa.me/554733053975" target="_blank" class="footer-social-btn" aria-label="WhatsApp">
+              <i class="fab fa-whatsapp"></i>
+            </a>
+            <a href="tel:4733053975" class="footer-social-btn" aria-label="Telefone">
+              <i class="fas fa-phone"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Navegação</h4>
+          <ul>
+            <li><a href="#inicio">Início</a></li>
+            <li><a href="#sobre">Nossa História</a></li>
+            <li><a href="#cardapio">Cardápio Artesanal</a></li>
+            <li><a href="#festival">Festival de Morangos</a></li>
+            <li><a href="#encomendas">Encomendas Especiais</a></li>
+            <li><a href="trabalhe-conosco.html" style="color:var(--primary-gold);font-weight:700"><i class="fas fa-briefcase"></i> Vaga de Balconista</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Especialidades</h4>
+          <ul>
+            <li><a href="#cardapio">Pães Franceses & Especiais</a></li>
+            <li><a href="#cardapio">Bolos Recheados & Vulcão</a></li>
+            <li><a href="#cardapio">Brigadeiros Gourmet Belga</a></li>
+            <li><a href="#cardapio">Salgados de Festa Assados</a></li>
+            <li><a href="#cardapio">Cafeteria & Lanches</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Atendimento</h4>
+          <p style="font-size:0.88rem;color:rgba(255,255,255,0.7);margin-bottom:0.6rem">
+            <strong>WhatsApp:</strong> (47) 3305-3975
+          </p>
+          <p style="font-size:0.88rem;color:rgba(255,255,255,0.7);margin-bottom:0.6rem">
+            <strong>Instagram:</strong> @_belempaesedoces
+          </p>
+          <p style="font-size:0.88rem;color:rgba(255,255,255,0.7)">
+            <strong>Horário:</strong> Seg-Sáb 06:00 às 19:30 | Dom 07:00 às 12:30
+          </p>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <div>
+          &copy; 2026 Belém Pães e Doces. Todos os direitos reservados. Desde 1987.
+        </div>
+        <div>
+          Feito com farinha, dedicação e amor ❤️✨
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==========================================================================
+       FLOATING WHATSAPP BUTTON WITH BADGE
+       ========================================================================== -->
+  <a href="https://wa.me/554733053975?text=Olá!%20Vim%20pelo%20site%20da%20Belém%20Pães%20e%20Doces!" target="_blank" class="floating-whatsapp" aria-label="WhatsApp Belém Pães e Doces">
+    <i class="fab fa-whatsapp"></i>
+    <span class="whatsapp-tooltip">Peça seu pão quentinho aqui!</span>
+  </a>
+
+  <!-- Toast popup message -->
+  <div class="toast-message" id="toastMessage">
+    <i class="fas fa-check-circle"></i>
+    <span id="toastText">Item selecionado!</span>
+  </div>
+
+  <!-- ==========================================================================
+       JAVASCRIPT LOGIC & PRODUCTS DATABASE (LANDING PAGE - SEM PREÇOS)
+       ========================================================================== -->
+  <script>
+    // Product catalog for the Landing Page - Authentic Offerings from @_belempaesedoces
+    const PRODUCTS = [
+      // BOLOS & TORTAS (Fotos Reais do Instagram)
+      {
+        id: 'torta-morango-ninho',
+        category: 'bolos',
+        name: 'Torta Especial de Morango & Ninho',
+        desc: 'A grande estrela da casa! Fatias fartas com pão de ló úmido, Leite Ninho aerado e morangos frescos selecionados.',
+        badge: 'Festival do Morango',
+        statusTag: 'Destaque Instagram',
+        special: true,
+        img: 'images/ig_img_14.jpg'
+      },
+      {
+        id: 'bolo-cenoura-vulcao',
+        category: 'bolos',
+        name: 'Bolo de Cenoura Vulcão com Cobertura Belga',
+        desc: 'Massa artesanal super fofinha e dourada com uma generosa cascata quente de chocolate nobre escorrendo.',
+        badge: 'Vídeo Viral',
+        statusTag: 'Fornada Diária',
+        special: true,
+        img: 'images/ig_img_12.jpg'
+      },
+      {
+        id: 'bolo-chocolate-trufado',
+        category: 'bolos',
+        name: 'Bolo Trufado de Chocolate com Gotas Crocantes',
+        desc: 'Camadas generosas de massa de cacau intenso, recheio trufado cremoso e cobertura com pedaços crocantes de chocolate.',
+        badge: 'Chocólatras',
+        statusTag: 'Receita Especial',
+        img: 'images/ig_img_13.jpg'
+      },
+      {
+        id: 'bolo-milho-colonial',
+        category: 'bolos',
+        name: 'Bolo de Milho Colonial Cremoso (Tipo Pamonha)',
+        desc: 'Autêntica receita da roça! Textura úmida e cremosa feita com milho verde de verdade. Puro sabor de infância.',
+        badge: 'Tradição Desde 1987',
+        statusTag: 'Fornada Quentinha',
+        img: 'images/ig_img_8.jpg'
+      },
+      {
+        id: 'bolo-festa-lambeth',
+        category: 'bolos',
+        name: 'Bolo Artístico Vintage (Decoração Lambeth)',
+        desc: 'Trabalho artesanal minucioso em glacê nobre com arabescos clássicos e pérolas comemorativas para momentos inesquecíveis.',
+        badge: 'Sob Encomenda',
+        statusTag: 'Feito sob Medida',
+        special: true,
+        img: 'images/ig_img_10.jpg'
+      },
+      {
+        id: 'torta-festiva-morango',
+        category: 'bolos',
+        name: 'Torta Comemorativa de Morangos & Raspas Brancas',
+        desc: 'Cobertura aveludada de chantilly artesanal, raspas fartas de chocolate branco nobre e morangos frescos.',
+        badge: 'Mais Pedida',
+        statusTag: 'Pronta Entrega / Encomenda',
+        img: 'images/ig_img_7.jpg'
+      },
+      {
+        id: 'fatia-torta-trufada',
+        category: 'bolos',
+        name: 'Super Fatia de Torta Trufada Artesanal',
+        desc: 'Generosa fatia individual com recheio cremoso e raspas artesanais de puro chocolate ao leite da nossa confeitaria.',
+        badge: 'Desejo de Balcão',
+        statusTag: 'Fatia Individual',
+        img: 'images/ig_img_15.jpg'
+      },
+
+      // DOCES & FESTIVAL DO MORANGO (Fotos Reais do Instagram)
+      {
+        id: 'bombons-festival-morango',
+        category: 'doces',
+        name: 'Morangos Gourmet Banhados no Chocolate',
+        desc: 'Morangos frescos e doces envoltos em coberturas nobres: chocolate branco com frutas vermelhas, ninho e chocolate ao leite.',
+        badge: 'Festival Sexta-Feira',
+        statusTag: 'Edição Especial',
+        special: true,
+        img: 'images/ig_img_4.jpg'
+      },
+      {
+        id: 'vitrine-doces-finos',
+        category: 'doces',
+        name: 'Seleção Especial de Doces Finos & Bombons',
+        desc: 'Nossa vitrine diária de sobremesas: doces delicados, trufas enroladas à mão e brigadeiros gourmet com ingredientes selecionados.',
+        badge: 'Vitrine do Dia',
+        statusTag: 'Produção Fresca',
+        img: 'images/ig_img_5.jpg'
+      },
+      {
+        id: 'sonho-artesanal',
+        category: 'doces',
+        name: 'Sonho Tradicional Recheado de Padaria',
+        desc: 'Massa leve e fofinha frita no ponto exato, coberta com açúcar de confeiteiro e recheio farto de creme de baunilha.',
+        badge: 'Clássico 1987',
+        statusTag: 'Saindo do Forno',
+        img: 'https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=600&q=80'
+      },
+      {
+        id: 'trio-brigadeiros-belga',
+        category: 'doces',
+        name: 'Brigadeiros Gourmet Belga',
+        desc: 'Ao leite clássico, chocolate meio amargo e ninho com recheio especial. Feitos com manteiga de primeira e cacau puro.',
+        badge: 'Gourmet',
+        statusTag: 'Disponível no Balcão',
+        img: 'https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?auto=format&fit=crop&w=600&q=80'
+      },
+
+      // PÃES & FORNADAS
+      {
+        id: 'pao-frances-tradicional',
+        category: 'paes',
+        name: 'Pão Francês Crocante Tradicional',
+        desc: 'Casca crocante e dourada, miolo macio e aveludado. Fornadas quentinhas saindo a cada 2 horas do nosso forno.',
+        badge: 'Campeão de Vendas',
+        statusTag: 'Fornadas Contínuas',
+        img: 'https://images.unsplash.com/photo-1585478259715-4d4e4b77ec1a?auto=format&fit=crop&w=600&q=80'
+      },
+      {
+        id: 'pao-multigraos',
+        category: 'paes',
+        name: 'Pão Multigrãos & Sementes Rústico',
+        desc: 'Farinha integral pura, chia, linhaça dourada, aveia e sementes de girassol. 100% natural e rico em fibras.',
+        badge: 'Saudável',
+        statusTag: 'Fornada Matinal',
+        img: 'https://images.unsplash.com/photo-1549931319-a545dcf3bc73?auto=format&fit=crop&w=600&q=80'
+      },
+      {
+        id: 'pao-queijo-mineiro',
+        category: 'paes',
+        name: 'Pão de Queijo Mineiro com Queijo Curado',
+        desc: 'Receita legítima com queijo da serra, casquinha dourada crocante e puxa-puxa perfeito no centro.',
+        badge: 'Quentinho',
+        statusTag: 'Saindo Toda Hora',
+        img: 'https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?auto=format&fit=crop&w=600&q=80'
+      },
+
+      // SALGADOS & LANCHES
+      {
+        id: 'coxinha-frango-catupiry',
+        category: 'salgados',
+        name: 'Coxinha Dourada com Catupiry Legítimo',
+        desc: 'Massa artesanal de batata cozida, recheio bem temperado de frango desfiado e queijo catupiry cremoso.',
+        badge: 'Favorito do Balcão',
+        statusTag: 'Estufa Quente',
+        img: 'https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=600&q=80'
+      },
+      {
+        id: 'croissant-folhado',
+        category: 'salgados',
+        name: 'Croissant Folhado Amanteigado',
+        desc: 'Massa folhada fina com manteiga pura de primeira linha, dourada no forno com queijo derretido.',
+        badge: 'Folhado Artesanal',
+        statusTag: 'Fornada do Dia',
+        img: 'https://images.unsplash.com/photo-1612929633738-8fe44f7ec841?auto=format&fit=crop&w=600&q=80'
+      },
+      {
+        id: 'cento-salgadinhos-festa',
+        category: 'salgados',
+        name: 'Kit Salgadinhos de Festa (Fritos & Assados)',
+        desc: 'Mix crocante preparado sob encomenda: coxinhas, bolinhas de queijo, kibes recheados e empadas.',
+        badge: 'Kit Festa',
+        statusTag: 'Sob Encomenda',
+        img: 'https://images.unsplash.com/photo-1515516969-d4008cc6241a?auto=format&fit=crop&w=600&q=80'
+      },
+
+      // CAFETERIA ESPECIAL
+      {
+        id: 'cappuccino-belem-especial',
+        category: 'cafes',
+        name: 'Cappuccino Belém com Borda de Doce de Leite',
+        desc: 'Café expresso especial cremoso, leite vaporizado aveludado e borda generosa com nosso doce de leite artesanal.',
+        badge: 'Cafeteria Afetiva',
+        statusTag: 'Feito na Hora',
+        img: 'https://images.unsplash.com/photo-1517256064527-09c73fc73e38?auto=format&fit=crop&w=600&q=80'
+      },
+      {
+        id: 'chocolate-quente-cremoso',
+        category: 'cafes',
+        name: 'Chocolate Quente Colonial Cremoso',
+        desc: 'Textura aveludada e aroma acolhedor de canela com chocolate nobre derretido no vapor.',
+        badge: 'Conforto & Sabor',
+        statusTag: 'Servido Quente',
+        img: 'https://images.unsplash.com/photo-1542990253-0d0f5be5f0ed?auto=format&fit=crop&w=600&q=80'
+      }
+    ];
+
+    // State
+    let currentCategory = 'all';
+    let searchQuery = '';
+
+    // Init UI
+    document.addEventListener('DOMContentLoaded', () => {
+      renderProducts();
+
+      // Set today's date + 1 day as min for quote
+      const tomorrow = new Date();
+      tomorrow.setDate(tomorrow.getDate() + 1);
+      const yyyy = tomorrow.getFullYear();
+      const mm = String(tomorrow.getMonth() + 1).padStart(2, '0');
+      const dd = String(tomorrow.getDate()).padStart(2, '0');
+      const dateInput = document.getElementById('quoteDate');
+      if (dateInput) {
+        dateInput.min = `${yyyy}-${mm}-${dd}`;
+        dateInput.value = `${yyyy}-${mm}-${dd}`;
+      }
+    });
+
+    // Render Products Grid (LP SEM PREÇOS - Pedidos Direto no WhatsApp)
+    function renderProducts() {
+      const container = document.getElementById('productsGrid');
+      if (!container) return;
+
+      const filtered = PRODUCTS.filter(item => {
+        const matchesCategory = currentCategory === 'all' || item.category === currentCategory;
+        const matchesSearch = item.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                              item.desc.toLowerCase().includes(searchQuery.toLowerCase());
+        return matchesCategory && matchesSearch;
+      });
+
+      if (filtered.length === 0) {
+        container.innerHTML = `
+          <div style="grid-column:1/-1;text-align:center;padding:3rem 1rem;color:var(--text-muted)">
+            <i class="fas fa-cookie-bite" style="font-size:2.5rem;color:var(--primary-amber);margin-bottom:1rem;display:block"></i>
+            <h3 style="font-family:var(--font-serif);color:var(--primary-brown)">Nenhuma delícia encontrada com esse termo</h3>
+            <p>Tente buscar por "bolo", "morango", "pão", "chocolate" ou selecione outra categoria acima.</p>
+          </div>
+        `;
+        return;
+      }
+
+      container.innerHTML = filtered.map(item => {
+        const waMessage = encodeURIComponent(`Olá, Belém Pães e Doces! Gostaria de pedir / saber a disponibilidade de: *${item.name}* que vi no cardápio do site!`);
+        const waLink = `https://wa.me/554733053975?text=${waMessage}`;
+
+        return `
+        <article class="product-card" id="card-${item.id}">
+          <div class="product-img-wrap">
+            <img src="${item.img}" alt="${item.name}" loading="lazy" />
+            <span class="product-badge-tag ${item.special ? 'product-badge-special' : ''}">
+              ${item.badge}
+            </span>
+          </div>
+
+          <div class="product-body">
+            <span class="product-category-label">${getCategoryName(item.category)}</span>
+            <h3 class="product-name">${item.name}</h3>
+            <p class="product-description">${item.desc}</p>
+
+            <div class="product-card-footer">
+              <div class="product-status-tag">
+                <span class="status-dot"></span>
+                <span>${item.statusTag || 'Pronta Entrega'}</span>
+              </div>
+
+              <a href="${waLink}" target="_blank" class="btn-order-lp" title="Pedir pelo WhatsApp">
+                <i class="fab fa-whatsapp"></i> Pedir no WhatsApp
+              </a>
+            </div>
+          </div>
+        </article>
+      `;
+      }).join('');
+    }
+
+    function getCategoryName(cat) {
+      const map = {
+        'paes': 'Pães & Padaria',
+        'bolos': 'Bolos & Confeitaria',
+        'doces': 'Doces & Sobremesas',
+        'salgados': 'Salgados & Lanches',
+        'cafes': 'Cafeteria Especial'
+      };
+      return map[cat] || 'Padaria Artesanal';
+    }
+
+    function setCategory(category, button) {
+      currentCategory = category;
+      document.querySelectorAll('.menu-tab-btn').forEach(btn => btn.classList.remove('active'));
+      if (button) button.classList.add('active');
+      renderProducts();
+    }
+
+    function filterMenu() {
+      searchQuery = document.getElementById('menuSearchInput').value.trim();
+      renderProducts();
+    }
+
+    // Cake Custom Quote Handler
+    function handleCakeQuote(e) {
+      e.preventDefault();
+      const guests = document.getElementById('quoteGuests').value;
+      const dough = document.getElementById('quoteDough').value;
+      const filling = document.getElementById('quoteFilling').value;
+      const date = document.getElementById('quoteDate').value;
+      const notes = document.getElementById('quoteNotes').value.trim();
+
+      let text = `🎂 *Olá, Belém Pães e Doces!*\n`;
+      text += `Gostaria de um orçamento para um bolo personalizado sob encomenda:\n\n`;
+      text += `👥 *Tamanho:* ${guests}\n`;
+      text += `🍰 *Massa desejada:* ${dough}\n`;
+      text += `🍓 *Recheio preferido:* ${filling}\n`;
+      text += `📅 *Data do Evento:* ${date}\n`;
+      if (notes) {
+        text += `✨ *Detalhes do tema / decoração:* ${notes}\n`;
+      }
+      text += `\nAguardo as opções de valores e confirmação da data. Muito obrigado!`;
+
+      const url = `https://wa.me/554733053975?text=${encodeURIComponent(text)}`;
+      window.open(url, '_blank');
+    }
+
+    // Mobile nav toggle
+    function toggleMobileNav() {
+      document.getElementById('mobileNavDrawer').classList.toggle('active');
+    }
+
+    // FAQ Accordion
+    function toggleFaq(element) {
+      element.classList.toggle('active');
+    }
+
+    // Toast alert
+    function showToast(msg) {
+      const toast = document.getElementById('toastMessage');
+      const text = document.getElementById('toastText');
+      if (toast && text) {
+        text.innerText = msg;
+        toast.classList.add('show');
+        setTimeout(() => toast.classList.remove('show'), 2500);
+      }
+    }
+
+    // Sticky header shadow on scroll
+    window.addEventListener('scroll', () => {
+      const header = document.getElementById('header');
+      if (window.scrollY > 40) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    });
+
+    // ==========================================================================
+    // ROLAGEM DE SCROLL ULTRA SUAVE (MOMENTUM / INERTIA LERP SMOOTH SCROLL)
+    // ==========================================================================
+    (function initSmoothScroll() {
+      // For touch devices (smartphones, tablets), keep 100% native smooth gesture momentum
+      const isTouch = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
+      if (isTouch) return;
+
+      let currentY = window.scrollY;
+      let targetY = window.scrollY;
+      let isRunning = false;
+      const ease = 0.085; // Damping: 0.085 creates a silky, butter-smooth glide
+
+      function loop() {
+        const diff = targetY - currentY;
+        if (Math.abs(diff) > 0.4) {
+          currentY += diff * ease;
+          window.scrollTo(0, Math.round(currentY));
+          requestAnimationFrame(loop);
+        } else {
+          currentY = targetY;
+          window.scrollTo(0, targetY);
+          isRunning = false;
+        }
+      }
+
+      window.addEventListener('wheel', (e) => {
+        // Do not intercept if inside a scrollable child like textarea or select
+        let el = e.target;
+        while (el && el !== document.body) {
+          if (el.scrollHeight > el.clientHeight && (getComputedStyle(el).overflowY === 'auto' || getComputedStyle(el).overflowY === 'scroll')) {
+            return;
+          }
+          el = el.parentElement;
+        }
+
+        e.preventDefault();
+        const maxScroll = Math.max(0, document.documentElement.scrollHeight - window.innerHeight);
+        const delta = e.deltaY * 1.12;
+        targetY = Math.max(0, Math.min(maxScroll, targetY + delta));
+
+        if (!isRunning) {
+          isRunning = true;
+          currentY = window.scrollY;
+          requestAnimationFrame(loop);
+        }
+      }, { passive: false });
+
+      // Keep targetY in sync if user navigates or drags native scrollbar
+      window.addEventListener('scroll', () => {
+        if (!isRunning) {
+          targetY = window.scrollY;
+          currentY = window.scrollY;
+        }
+      });
+
+      // Smooth scroll on anchor clicks (#inicio, #cardapio, #sobre, etc.)
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          const href = this.getAttribute('href');
+          if (!href || href === '#') return;
+          const target = document.querySelector(href);
+          if (target) {
+            e.preventDefault();
+            const headerOffset = 85;
+            const top = target.getBoundingClientRect().top + window.pageYOffset - headerOffset;
+            const maxScroll = Math.max(0, document.documentElement.scrollHeight - window.innerHeight);
+            targetY = Math.max(0, Math.min(maxScroll, top));
+            if (!isRunning) {
+              isRunning = true;
+              currentY = window.scrollY;
+              requestAnimationFrame(loop);
+            }
+          }
+        });
+      });
+    })();
+  </script>
+</body>
+</html>

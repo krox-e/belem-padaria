@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vaga de Balconista | Trabalhe Conosco • Belém Pães e Doces</title>
+  <meta name="description" content="Faça parte da equipe da Belém Pães e Doces! Vaga aberta para Balconista. Conheça como é trabalhar em uma das padarias mais tradicionais da região (Desde 1987) e candidate-se pelo WhatsApp." />
+  
+  <link rel="icon" type="image/jpeg" href="images/ig_img_1.jpg" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Alex+Brush&display=swap" rel="stylesheet" />
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <style>
+    :root {
+      --bg-cream: #FCF9F4;
+      --bg-surface: #FFFFFF;
+      --bg-warm: #F7EFE3;
+      
+      --primary-brown: #2E1A11;
+      --primary-brown-light: #4A2E20;
+      --primary-amber: #D6963E;
+      --primary-amber-hover: #BF8029;
+      --primary-gold: #F4BA53;
+      --primary-cream: #FFF7ED;
+      
+      --accent-green: #25D366;
+      --accent-green-dark: #1EBE5D;
+      
+      --text-dark: #22150E;
+      --text-muted: #786457;
+      --border-subtle: #EFE4D5;
+      
+      --shadow-md: 0 8px 24px rgba(46, 26, 17, 0.08);
+      --shadow-lg: 0 16px 40px rgba(46, 26, 17, 0.12);
+      --shadow-xl: 0 24px 60px rgba(46, 26, 17, 0.18);
+      
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 22px;
+      --radius-full: 9999px;
+      
+      --font-serif: 'Playfair Display', Georgia, serif;
+      --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      --font-script: 'Alex Brush', cursive;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      background-color: var(--bg-cream);
+      color: var(--text-dark);
+      line-height: 1.65;
+      overflow-x: hidden;
+    }
+
+    .container {
+      width: 95%;
+      max-width: 1480px;
+      margin-left: auto;
+      margin-right: auto;
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
+
+    /* Top Bar */
+    .top-bar {
+      background: var(--primary-brown);
+      color: var(--primary-cream);
+      font-size: 0.84rem;
+      padding: 0.65rem 1rem;
+    }
+    .top-bar .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .top-bar a {
+      color: var(--primary-gold);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    /* Header */
+    header.site-header {
+      position: sticky;
+      top: 0;
+      z-index: 900;
+      background: rgba(252, 249, 244, 0.96);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border-subtle);
+      box-shadow: var(--shadow-md);
+    }
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 82px;
+    }
+    .brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+      text-decoration: none;
+    }
+    .brand-avatar {
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      border: 2px solid var(--primary-amber);
+      overflow: hidden;
+    }
+    .brand-avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .brand-name {
+      font-family: var(--font-serif);
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--primary-brown);
+      line-height: 1.15;
+    }
+    .brand-name span { color: var(--primary-amber); }
+    .brand-tag {
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--primary-amber-hover);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+      list-style: none;
+    }
+    .nav-links a {
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--primary-brown);
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--primary-amber); }
+
+    .btn-apply-whatsapp {
+      background: var(--accent-green);
+      color: white;
+      text-decoration: none;
+      padding: 0.75rem 1.6rem;
+      border-radius: var(--radius-full);
+      font-weight: 700;
+      font-size: 0.92rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      box-shadow: 0 4px 14px rgba(37, 211, 102, 0.35);
+      transition: all 0.2s ease;
+    }
+    .btn-apply-whatsapp:hover {
+      background: var(--accent-green-dark);
+      transform: translateY(-2px);
+    }
+
+    /* Hero Banner */
+    .career-hero {
+      background:
+        radial-gradient(circle at 10% 20%, rgba(244, 186, 83, 0.18) 0%, transparent 45%),
+        linear-gradient(180deg, #FBF6EE 0%, #F5E8D6 100%);
+      padding: 5rem 0 4rem;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+    .career-hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: white;
+      border: 1px solid var(--border-subtle);
+      padding: 0.4rem 1.1rem;
+      border-radius: var(--radius-full);
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--primary-amber-hover);
+      margin-bottom: 1.2rem;
+    }
+    .career-hero h1 {
+      font-family: var(--font-serif);
+      font-size: clamp(2.5rem, 4.5vw, 3.8rem);
+      font-weight: 800;
+      color: var(--primary-brown);
+      line-height: 1.15;
+      margin-bottom: 1.2rem;
+    }
+    .career-hero h1 span {
+      color: var(--primary-amber);
+    }
+    .career-hero p {
+      font-size: 1.15rem;
+      color: var(--text-muted);
+      max-width: 760px;
+      line-height: 1.8;
+      margin-bottom: 2rem;
+    }
+
+    /* Main Section: The Official Poster & Working Culture */
+    .career-main-section {
+      padding: 5rem 0;
+    }
+    .career-grid {
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 4.5rem;
+      align-items: start;
+    }
+
+    /* Poster Card */
+    .poster-wrap {
+      position: sticky;
+      top: 105px;
+      background: #111;
+      border-radius: var(--radius-lg);
+      padding: 12px;
+      box-shadow: var(--shadow-xl);
+      border: 2px solid #332218;
+      text-align: center;
+    }
+    .poster-img {
+      width: 100%;
+      border-radius: calc(var(--radius-lg) - 6px);
+      display: block;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+    }
+    .poster-caption {
+      margin-top: 1rem;
+      color: #E2D3C4;
+      font-size: 0.85rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+    }
+    .poster-caption a {
+      color: var(--primary-gold);
+      font-weight: 700;
+      text-decoration: underline;
+    }
+
+    /* Storytelling / How is it working here */
+    .career-content h2 {
+      font-family: var(--font-serif);
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: var(--primary-brown);
+      margin-bottom: 1.2rem;
+      line-height: 1.25;
+    }
+    .career-content p {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      line-height: 1.85;
+      margin-bottom: 1.5rem;
+    }
+
+    .culture-card {
+      background: white;
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 2.2rem;
+      margin-bottom: 2.5rem;
+      box-shadow: var(--shadow-md);
+    }
+    .culture-card h3 {
+      font-family: var(--font-serif);
+      font-size: 1.45rem;
+      color: var(--primary-brown);
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+    .culture-card h3 i {
+      color: var(--primary-amber);
+    }
+
+    .perks-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.2rem;
+      margin-top: 1.5rem;
+    }
+    .perk-item {
+      background: var(--bg-warm);
+      border-radius: var(--radius-md);
+      padding: 1.1rem;
+      border: 1px solid var(--border-subtle);
+    }
+    .perk-item i {
+      font-size: 1.3rem;
+      color: var(--primary-amber-hover);
+      margin-bottom: 0.4rem;
+      display: block;
+    }
+    .perk-item h4 {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--primary-brown);
+      margin-bottom: 0.2rem;
+    }
+    .perk-item p {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin: 0;
+      line-height: 1.5;
+    }
+
+    /* Requirements Box */
+    .requirements-box {
+      background: var(--primary-brown);
+      color: white;
+      border-radius: var(--radius-lg);
+      padding: 2.2rem;
+      margin-bottom: 2.5rem;
+      box-shadow: var(--shadow-lg);
+    }
+    .requirements-box h3 {
+      font-family: var(--font-serif);
+      font-size: 1.45rem;
+      color: var(--primary-gold);
+      margin-bottom: 1.2rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+    .req-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.9rem;
+    }
+    .req-list li {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 1rem;
+    }
+    .req-list li i {
+      color: #22c55e;
+      font-size: 1.1rem;
+    }
+
+    /* Fast Application Form */
+    .application-card {
+      background: white;
+      border: 2px solid var(--primary-amber);
+      border-radius: var(--radius-lg);
+      padding: 2.5rem;
+      box-shadow: var(--shadow-lg);
+    }
+    .application-card h3 {
+      font-family: var(--font-serif);
+      font-size: 1.6rem;
+      color: var(--primary-brown);
+      margin-bottom: 0.5rem;
+    }
+    .application-card p {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      margin-bottom: 1.8rem;
+    }
+    .form-group {
+      margin-bottom: 1.2rem;
+    }
+    .form-group label {
+      display: block;
+      font-size: 0.86rem;
+      font-weight: 700;
+      color: var(--primary-brown);
+      margin-bottom: 0.35rem;
+    }
+    .form-control {
+      width: 100%;
+      background: var(--bg-cream);
+      border: 1.5px solid var(--border-subtle);
+      border-radius: var(--radius-sm);
+      padding: 0.85rem 1.1rem;
+      font-size: 0.95rem;
+      color: var(--text-dark);
+      outline: none;
+      font-family: inherit;
+      transition: border-color 0.2s;
+    }
+    .form-control:focus {
+      border-color: var(--primary-amber);
+    }
+    .btn-submit-app {
+      width: 100%;
+      background: var(--accent-green);
+      color: white;
+      border: none;
+      border-radius: var(--radius-full);
+      padding: 1.05rem;
+      font-size: 1rem;
+      font-weight: 800;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+      box-shadow: 0 6px 20px rgba(37, 211, 102, 0.35);
+      transition: all 0.25s ease;
+      margin-top: 0.6rem;
+    }
+    .btn-submit-app:hover {
+      background: var(--accent-green-dark);
+      transform: translateY(-2px);
+    }
+
+    /* Footer */
+    footer.site-footer {
+      background: #1C100A;
+      color: rgba(255, 255, 255, 0.75);
+      padding: 3.5rem 0 2rem;
+      text-align: center;
+    }
+    .footer-logo {
+      font-family: var(--font-serif);
+      font-size: 1.5rem;
+      color: white;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+    .footer-logo span { color: var(--primary-gold); }
+
+    @media (max-width: 900px) {
+      .career-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+      .poster-wrap {
+        position: static;
+        max-width: 480px;
+        margin: 0 auto;
+      }
+      .perks-list {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="top-bar">
+    <div class="container">
+      <div>
+        <i class="fas fa-bullhorn" style="color:var(--primary-gold);margin-right:0.4rem"></i>
+        <strong>Oportunidade de Trabalho:</strong> Vaga de Balconista de Segunda a Sábado!
+      </div>
+      <div>
+        <a href="index.html"><i class="fas fa-arrow-left"></i> Voltar ao Site da Padaria</a>
+      </div>
+    </div>
+  </div>
+
+  <header class="site-header">
+    <div class="container">
+      <div class="nav-inner">
+        <a href="index.html" class="brand-logo">
+          <div class="brand-avatar">
+            <img src="images/ig_img_1.jpg" alt="Logo Belém Pães e Doces" />
+          </div>
+          <div class="brand-text">
+            <div class="brand-name">Belém <span>Pães & Doces</span></div>
+            <div class="brand-tag">Desde 1987 • Trabalhe Conosco</div>
+          </div>
+        </a>
+
+        <ul class="nav-links">
+          <li><a href="index.html#inicio">Início</a></li>
+          <li><a href="index.html#sobre">História</a></li>
+          <li><a href="index.html#cardapio">Cardápio</a></li>
+          <li><a href="https://www.instagram.com/_belempaesedoces/" target="_blank"><i class="fab fa-instagram"></i> Instagram</a></li>
+        </ul>
+
+        <a href="https://wa.me/554733053975?text=Olá!%20Vi%20a%20vaga%20de%20Balconista%20no%20site%20da%20Belém%20Pães%20e%20Doces%20e%20gostaria%20de%20me%20candidatar!" target="_blank" class="btn-apply-whatsapp">
+          <i class="fab fa-whatsapp"></i> Enviar Currículo
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="career-hero">
+    <div class="container">
+      <div class="career-hero-badge">
+        <i class="fas fa-heart"></i> Faça Parte da Nossa Família
+      </div>
+      <h1>Faça parte do time da<br><span>Belém Pães e Doces!</span></h1>
+      <p>
+        Estamos contratando <strong>Balconista</strong>! Se você é dedicado(a), atencioso(a), tem um sorriso acolhedor no rosto e adora lidar com pessoas, seu lugar é conosco. Conheça como é a rotina no nosso balcão e envie seu currículo.
+      </p>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <section class="career-main-section">
+    <div class="container">
+      <div class="career-grid">
+        
+        <!-- Left Column: Official Poster from Instagram -->
+        <div>
+          <div class="poster-wrap">
+            <img src="images/ig_img_6.jpg" alt="Post oficial do Instagram: Contrata-se Balconista - Belém Pães e Doces Desde 1987" class="poster-img" />
+            <div class="poster-caption">
+              <i class="fab fa-instagram"></i>
+              <span>Publicação oficial de <a href="https://www.instagram.com/_belempaesedoces/" target="_blank">@_belempaesedoces</a></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column: How is it to work here + Perks + Form -->
+        <div class="career-content">
+          <span style="font-size:0.8rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--primary-amber)">Nossa Cultura & Rotina</span>
+          <h2>Como é trabalhar na Belém Pães e Doces?</h2>
+          
+          <p>
+            Trabalhar na Belém é muito mais do que um emprego de balcão: é fazer parte de uma história de mais de <strong>38 anos de tradição (Desde 1987)</strong> onde cada dia começa com o cheirinho inesquecível de fornada quentinha e o acolhimento de famílias que frequentam nossa casa há gerações.
+          </p>
+          
+          <p>
+            Aqui, acreditamos no lema <em>"Em cada receita, uma pitada de amor"</em>. E isso vale tanto para o preparo dos nossos pães e doces quanto para o cuidado com a nossa equipe. Você encontrará um ambiente onde as pessoas se ajudam, respeitam o trabalho umas das outras e celebram cada conquista juntas.
+          </p>
+
+          <!-- Working perks -->
+          <div class="culture-card">
+            <h3><i class="fas fa-star"></i> O Que Você Vai Encontrar Aqui:</h3>
+            
+            <div class="perks-list">
+              <div class="perk-item">
+                <i class="fas fa-users"></i>
+                <h4>Ambiente Familiar</h4>
+                <p>Equipe unida, respeito diário e clima leve e agradável de cooperação.</p>
+              </div>
+
+              <div class="perk-item">
+                <i class="fas fa-coffee"></i>
+                <h4>Café Colonial Incluso</h4>
+                <p>Pães frescos, cafés e lanches da padaria para começar o dia com energia.</p>
+              </div>
+
+              <div class="perk-item">
+                <i class="fas fa-graduation-cap"></i>
+                <h4>Aprendizado Constante</h4>
+                <p>Treinamento prático em atendimento de excelência e confeitaria artesanal.</p>
+              </div>
+
+              <div class="perk-item">
+                <i class="fas fa-clock"></i>
+                <h4>Horários Fixos</h4>
+                <p>Escala organizada de segunda a sábado com descanso planejado.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Visual workplace gallery: Our bakery & counter -->
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;margin-bottom:2.5rem;">
+            <div style="border-radius:var(--radius-md);overflow:hidden;box-shadow:var(--shadow-md);border:1px solid var(--border-subtle);background:white;">
+              <img src="images/ig_img_9.jpg" alt="Balcão de atendimento e vitrine de pães e doces da Belém Pães e Doces" style="width:100%;height:230px;object-fit:cover;display:block;" />
+              <div style="padding:0.75rem 1rem;font-size:0.82rem;color:var(--text-muted);font-weight:600;">
+                <i class="fas fa-store" style="color:var(--primary-amber);margin-right:0.3rem;"></i> Nosso balcão e vitrine diária recheada
+              </div>
+            </div>
+            <div style="border-radius:var(--radius-md);overflow:hidden;box-shadow:var(--shadow-md);border:1px solid var(--border-subtle);background:white;">
+              <img src="images/ig_img_11.jpg" alt="Fachada da Belém Pães e Doces em Santa Catarina" style="width:100%;height:230px;object-fit:cover;display:block;" />
+              <div style="padding:0.75rem 1rem;font-size:0.82rem;color:var(--text-muted);font-weight:600;">
+                <i class="fas fa-map-marker-alt" style="color:var(--primary-amber);margin-right:0.3rem;"></i> Nossa casa em Santa Catarina desde 1987
+              </div>
+            </div>
+          </div>
+
+          <!-- Requirements (from Instagram post) -->
+          <div class="requirements-box">
+            <h3><i class="fas fa-clipboard-check"></i> Requisitos da Vaga (Balconista):</h3>
+            <ul class="req-list">
+              <li><i class="fas fa-check-circle"></i> <strong>Boa comunicação e simpatia:</strong> gostar de acolher o cliente e conversar com alegria.</li>
+              <li><i class="fas fa-check-circle"></i> <strong>Agilidade e organização:</strong> manter o balcão impecável e atender com presteza.</li>
+              <li><i class="fas fa-check-circle"></i> <strong>Disponibilidade e responsabilidade:</strong> pontualidade e comprometimento com o time.</li>
+              <li><i class="fas fa-check-circle"></i> <strong>Vontade de aprender e crescer:</strong> mente aberta para aprender novas receitas e processos.</li>
+              <li><i class="fas fa-calendar-alt"></i> <strong>Disponibilidade de Segunda a Sábado</strong>.</li>
+            </ul>
+          </div>
+
+          <!-- Fast Application Form -->
+          <div class="application-card">
+            <h3>Candidate-se Agora</h3>
+            <p>Preencha os dados abaixo e entraremos em contato direto pelo seu WhatsApp!</p>
+
+            <form onsubmit="handleCandidate(event)">
+              <div class="form-group">
+                <label for="candName">Seu Nome Completo *</label>
+                <input type="text" id="candName" class="form-control" placeholder="Ex: Ana Clara dos Santos" required />
+              </div>
+
+              <div class="form-group">
+                <label for="candPhone">Seu WhatsApp com DDD *</label>
+                <input type="tel" id="candPhone" class="form-control" placeholder="Ex: (47) 99999-9999" required />
+              </div>
+
+              <div class="form-group">
+                <label for="candExp">Já trabalhou com atendimento ou padaria antes?</label>
+                <select id="candExp" class="form-control">
+                  <option value="Sim, tenho experiência com atendimento/padaria">Sim, tenho experiência comprovada</option>
+                  <option value="Não, mas tenho muita vontade e facilidade para aprender">Não, mas tenho muita vontade de aprender!</option>
+                  <option value="Já trabalhei com atendimento em outros setores (loja, mercado, etc)">Já trabalhei com atendimento em outro setor</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="candMsg">Conte um pouquinho sobre você:</label>
+                <textarea id="candMsg" class="form-control" rows="3" placeholder="Onde mora, o que gosta de fazer e por que gostaria de fazer parte do nosso time..."></textarea>
+              </div>
+
+              <button type="submit" class="btn-submit-app">
+                <i class="fab fa-whatsapp"></i> Enviar Candidatura via WhatsApp
+              </button>
+            </form>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-logo">Belém <span>Pães & Doces</span></div>
+      <p style="font-size:0.9rem;color:rgba(255,255,255,0.6);margin-bottom:1rem">Desde 1987 • Tradição, carinho e respeito</p>
+      <p style="font-size:0.82rem;color:rgba(255,255,255,0.4)">
+        Dúvidas sobre a vaga? Entre em contato pelo WhatsApp: <strong>(47) 3305-3975</strong> ou no Instagram <strong>@_belempaesedoces</strong>
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    function handleCandidate(e) {
+      e.preventDefault();
+      const name = document.getElementById('candName').value.trim();
+      const phone = document.getElementById('candPhone').value.trim();
+      const exp = document.getElementById('candExp').value;
+      const msg = document.getElementById('candMsg').value.trim();
+
+      let text = `👋 *Olá, equipe da Belém Pães e Doces!*\n`;
+      text += `Gostaria de me candidatar para a *VAGA DE BALCONISTA* divulgada no site:\n\n`;
+      text += `👤 *Nome:* ${name}\n`;
+      text += `📱 *WhatsApp:* ${phone}\n`;
+      text += `💼 *Experiência:* ${exp}\n`;
+      if (msg) {
+        text += `📝 *Sobre mim:* ${msg}\n`;
+      }
+      text += `\nEstou à disposição para entrevista e para enviar meu currículo completo. Muito obrigado(a)!`;
+
+      const url = `https://wa.me/554733053975?text=${encodeURIComponent(text)}`;
+      window.open(url, '_blank');
+    }
+
+    // Smooth Momentum Scroll
+    (function initSmoothScroll() {
+      const isTouch = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
+      if (isTouch) return;
+
+      let currentY = window.scrollY;
+      let targetY = window.scrollY;
+      let isRunning = false;
+      const ease = 0.085;
+
+      function loop() {
+        const diff = targetY - currentY;
+        if (Math.abs(diff) > 0.4) {
+          currentY += diff * ease;
+          window.scrollTo(0, Math.round(currentY));
+          requestAnimationFrame(loop);
+        } else {
+          currentY = targetY;
+          window.scrollTo(0, targetY);
+          isRunning = false;
+        }
+      }
+
+      window.addEventListener('wheel', (e) => {
+        let el = e.target;
+        while (el && el !== document.body) {
+          if (el.scrollHeight > el.clientHeight && (getComputedStyle(el).overflowY === 'auto' || getComputedStyle(el).overflowY === 'scroll')) {
+            return;
+          }
+          el = el.parentElement;
+        }
+
+        e.preventDefault();
+        const maxScroll = Math.max(0, document.documentElement.scrollHeight - window.innerHeight);
+        const delta = e.deltaY * 1.12;
+        targetY = Math.max(0, Math.min(maxScroll, targetY + delta));
+
+        if (!isRunning) {
+          isRunning = true;
+          currentY = window.scrollY;
+          requestAnimationFrame(loop);
+        }
+      }, { passive: false });
+
+      window.addEventListener('scroll', () => {
+        if (!isRunning) {
+          targetY = window.scrollY;
+          currentY = window.scrollY;
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
