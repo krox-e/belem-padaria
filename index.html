@@ -1244,6 +1244,10 @@
     }
 
     /* Product Grid */
+    .carousel-hint-mobile,
+    .carousel-controls-mobile {
+      display: none;
+    }
     .menu-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
@@ -2307,13 +2311,97 @@
         padding: 0.55rem 1rem !important;
         border-radius: 9999px !important;
       }
+      /* Cardápio Mobile Auto-Carousel & Horizontal Swipe */
+      .carousel-hint-mobile {
+        display: flex !important;
+        align-items: center;
+        justify-content: center;
+        gap: 0.45rem;
+        font-size: 0.74rem;
+        color: var(--text-muted);
+        margin-bottom: 0.75rem;
+      }
+      .carousel-hint-mobile i {
+        color: var(--primary-amber);
+        animation: swipeHint 1.8s infinite ease-in-out;
+      }
+      @keyframes swipeHint {
+        0%, 100% { transform: translateX(0); }
+        50% { transform: translateX(5px); }
+      }
       .menu-grid {
-        grid-template-columns: 1fr !important;
-        gap: 1.3rem !important;
+        display: flex !important;
+        flex-direction: row !important;
+        overflow-x: auto !important;
+        scroll-snap-type: x mandatory !important;
+        scroll-behavior: smooth !important;
+        -webkit-overflow-scrolling: touch !important;
+        scrollbar-width: none !important;
+        gap: 1rem !important;
+        padding: 0.4rem 0.2rem 1.1rem !important;
+        margin-left: -0.2rem !important;
+        margin-right: -0.2rem !important;
+      }
+      .menu-grid::-webkit-scrollbar {
+        display: none !important;
       }
       .product-card {
+        flex: 0 0 85% !important;
+        max-width: 85% !important;
+        scroll-snap-align: center !important;
+        scroll-snap-stop: always !important;
         border-radius: 18px !important;
-        box-shadow: 0 4px 18px rgba(46, 26, 17, 0.08) !important;
+        box-shadow: 0 6px 20px rgba(46, 26, 17, 0.09) !important;
+      }
+      .carousel-controls-mobile {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 0.75rem !important;
+        margin-top: 0.3rem !important;
+        margin-bottom: 0.8rem !important;
+      }
+      .carousel-dots {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 0.35rem !important;
+        max-width: 210px !important;
+        overflow-x: hidden !important;
+      }
+      .carousel-dot {
+        width: 7px !important;
+        height: 7px !important;
+        border-radius: 50% !important;
+        background: #D8CEBE !important;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+        cursor: pointer !important;
+        border: none !important;
+        padding: 0 !important;
+      }
+      .carousel-dot.active {
+        background: var(--primary-amber) !important;
+        width: 22px !important;
+        border-radius: 6px !important;
+      }
+      .carousel-nav-btn {
+        width: 36px !important;
+        height: 36px !important;
+        border-radius: 50% !important;
+        background: #FFFFFF !important;
+        border: 1px solid var(--border-subtle) !important;
+        color: var(--primary-brown) !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        font-size: 0.82rem !important;
+        cursor: pointer !important;
+        box-shadow: 0 2px 8px rgba(46, 26, 17, 0.07) !important;
+        transition: background-color 0.2s, transform 0.2s !important;
+      }
+      .carousel-nav-btn:active {
+        transform: scale(0.9) !important;
+        background: var(--primary-cream) !important;
       }
       .product-img-wrap {
         height: 200px !important;
@@ -2965,9 +3053,26 @@
         </button>
       </div>
 
-      <!-- Products Grid (Dynamically Populated via JS) -->
+      <!-- Mobile Carousel Hint (Apenas Celular) -->
+      <div class="carousel-hint-mobile">
+        <i class="fas fa-hand-point-right"></i>
+        <span>Deslizando automaticamente • Arraste para o lado</span>
+      </div>
+
+      <!-- Products Grid (Dynamically Populated via JS - Carrossel no Celular, Grid no Computador) -->
       <div class="menu-grid" id="productsGrid">
         <!-- Products will be generated here -->
+      </div>
+
+      <!-- Mobile Carousel Controls & Indicators -->
+      <div class="carousel-controls-mobile" id="carouselControlsMobile">
+        <button class="carousel-nav-btn" onclick="prevCarouselItem(); onCarouselTouchStart(); onCarouselTouchEnd();" aria-label="Item anterior">
+          <i class="fas fa-chevron-left"></i>
+        </button>
+        <div class="carousel-dots" id="carouselDots"></div>
+        <button class="carousel-nav-btn" onclick="nextCarouselItem(); onCarouselTouchStart(); onCarouselTouchEnd();" aria-label="Próximo item">
+          <i class="fas fa-chevron-right"></i>
+        </button>
       </div>
     </div>
   </section>
@@ -3638,6 +3743,16 @@
     let currentCategory = 'all';
     let searchQuery = '';
 
+    // Mobile Auto-Carousel State
+    let carouselTimer = null;
+    let isUserInteracting = false;
+    let userInteractionTimeout = null;
+    let currentCarouselIndex = 0;
+
+    function isMobileView() {
+      return window.innerWidth <= 768;
+    }
+
     // Init UI
     document.addEventListener('DOMContentLoaded', () => {
       renderProducts();
@@ -3653,6 +3768,10 @@
         dateInput.min = `${yyyy}-${mm}-${dd}`;
         dateInput.value = `${yyyy}-${mm}-${dd}`;
       }
+
+      window.addEventListener('resize', () => {
+        initMobileCarousel();
+      });
     });
 
     // Render Products Grid (LP SEM PREÇOS - Pedidos Direto no WhatsApp)
@@ -3669,12 +3788,14 @@
 
       if (filtered.length === 0) {
         container.innerHTML = `
-          <div style="grid-column:1/-1;text-align:center;padding:3rem 1rem;color:var(--text-muted)">
+          <div style="grid-column:1/-1;text-align:center;padding:3rem 1rem;color:var(--text-muted);width:100%">
             <i class="fas fa-cookie-bite" style="font-size:2.5rem;color:var(--primary-amber);margin-bottom:1rem;display:block"></i>
             <h3 style="font-family:var(--font-serif);color:var(--primary-brown)">Nenhuma delícia encontrada com esse termo</h3>
             <p>Tente buscar por "bolo", "morango", "pão", "chocolate" ou selecione outra categoria acima.</p>
           </div>
         `;
+        const dotsContainer = document.getElementById('carouselDots');
+        if (dotsContainer) dotsContainer.innerHTML = '';
         return;
       }
 
@@ -3710,6 +3831,172 @@
         </article>
       `;
       }).join('');
+
+      // Reset carousel to beginning on update
+      container.scrollLeft = 0;
+      currentCarouselIndex = 0;
+      initMobileCarousel();
+    }
+
+    // =========================================================================
+    // MOBILE AUTO-CAROUSEL CONTROLLER (Apenas no Celular)
+    // =========================================================================
+    function initMobileCarousel() {
+      const container = document.getElementById('productsGrid');
+      if (!container) return;
+
+      if (carouselTimer) {
+        clearInterval(carouselTimer);
+        carouselTimer = null;
+      }
+
+      updateCarouselDots();
+
+      if (!isMobileView()) return;
+
+      // Event listeners for user interaction pause
+      container.removeEventListener('scroll', handleCarouselScroll);
+      container.addEventListener('scroll', handleCarouselScroll, { passive: true });
+
+      container.removeEventListener('touchstart', onCarouselTouchStart);
+      container.addEventListener('touchstart', onCarouselTouchStart, { passive: true });
+      container.removeEventListener('touchend', onCarouselTouchEnd);
+      container.addEventListener('touchend', onCarouselTouchEnd, { passive: true });
+
+      container.removeEventListener('pointerdown', onCarouselTouchStart);
+      container.addEventListener('pointerdown', onCarouselTouchStart, { passive: true });
+      container.removeEventListener('pointerup', onCarouselTouchEnd);
+      container.addEventListener('pointerup', onCarouselTouchEnd, { passive: true });
+
+      startCarouselAutoScroll();
+    }
+
+    function startCarouselAutoScroll() {
+      if (carouselTimer) clearInterval(carouselTimer);
+      if (!isMobileView()) return;
+
+      carouselTimer = setInterval(() => {
+        if (isUserInteracting) return;
+        
+        const container = document.getElementById('productsGrid');
+        if (!container) return;
+        
+        // Only rotate if user has the menu in view or nearby
+        const rect = container.getBoundingClientRect();
+        if (rect.top > window.innerHeight + 250 || rect.bottom < -200) return;
+
+        nextCarouselItem();
+      }, 3500); // Rotação automática suave a cada 3.5 segundos
+    }
+
+    function onCarouselTouchStart() {
+      isUserInteracting = true;
+      if (userInteractionTimeout) clearTimeout(userInteractionTimeout);
+    }
+
+    function onCarouselTouchEnd() {
+      if (userInteractionTimeout) clearTimeout(userInteractionTimeout);
+      // Retoma a rotação suave após 4.5s de inatividade do usuário
+      userInteractionTimeout = setTimeout(() => {
+        isUserInteracting = false;
+      }, 4500);
+    }
+
+    function handleCarouselScroll() {
+      const container = document.getElementById('productsGrid');
+      if (!container) return;
+      const cards = container.querySelectorAll('.product-card');
+      if (!cards.length) return;
+
+      const scrollLeft = container.scrollLeft;
+      const cardWidth = cards[0].offsetWidth + 16;
+      const newIndex = Math.round(scrollLeft / cardWidth);
+
+      if (newIndex >= 0 && newIndex < cards.length && newIndex !== currentCarouselIndex) {
+        currentCarouselIndex = newIndex;
+        renderCarouselDots(currentCarouselIndex);
+      }
+    }
+
+    function scrollCarouselToIndex(index, smooth = true) {
+      const container = document.getElementById('productsGrid');
+      if (!container) return;
+      const cards = container.querySelectorAll('.product-card');
+      if (!cards.length) return;
+
+      if (index < 0) index = cards.length - 1;
+      if (index >= cards.length) index = 0;
+
+      currentCarouselIndex = index;
+      const targetCard = cards[index];
+      if (targetCard) {
+        const containerWidth = container.offsetWidth;
+        const cardWidth = targetCard.offsetWidth;
+        const targetScroll = targetCard.offsetLeft - (containerWidth - cardWidth) / 2;
+
+        container.scrollTo({
+          left: Math.max(0, targetScroll),
+          behavior: smooth ? 'smooth' : 'auto'
+        });
+        renderCarouselDots(currentCarouselIndex);
+      }
+    }
+
+    function nextCarouselItem() {
+      const container = document.getElementById('productsGrid');
+      if (!container) return;
+      const cards = container.querySelectorAll('.product-card');
+      if (!cards.length) return;
+
+      let nextIdx = currentCarouselIndex + 1;
+      if (nextIdx >= cards.length) {
+        nextIdx = 0;
+      }
+      scrollCarouselToIndex(nextIdx, true);
+    }
+
+    function prevCarouselItem() {
+      const container = document.getElementById('productsGrid');
+      if (!container) return;
+      const cards = container.querySelectorAll('.product-card');
+      if (!cards.length) return;
+
+      let prevIdx = currentCarouselIndex - 1;
+      if (prevIdx < 0) {
+        prevIdx = cards.length - 1;
+      }
+      scrollCarouselToIndex(prevIdx, true);
+    }
+
+    function updateCarouselDots() {
+      const dotsContainer = document.getElementById('carouselDots');
+      const container = document.getElementById('productsGrid');
+      if (!dotsContainer || !container) return;
+
+      const cards = container.querySelectorAll('.product-card');
+      if (!cards.length || !isMobileView()) {
+        dotsContainer.innerHTML = '';
+        return;
+      }
+
+      dotsContainer.innerHTML = Array.from(cards).map((_, idx) => `
+        <button class="carousel-dot ${idx === currentCarouselIndex ? 'active' : ''}" 
+                onclick="scrollCarouselToIndex(${idx}); onCarouselTouchStart(); onCarouselTouchEnd();" 
+                aria-label="Ir para o item ${idx + 1}"></button>
+      `).join('');
+    }
+
+    function renderCarouselDots(activeIndex) {
+      const dotsContainer = document.getElementById('carouselDots');
+      if (!dotsContainer) return;
+      const dots = dotsContainer.querySelectorAll('.carousel-dot');
+      dots.forEach((dot, idx) => {
+        if (idx === activeIndex) {
+          dot.classList.add('active');
+        } else {
+          dot.classList.remove('active');
+        }
+      });
     }
 
     function getCategoryName(cat) {
