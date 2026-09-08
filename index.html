@@ -2149,42 +2149,345 @@
     }
 
     @media (max-width: 768px) {
-      nav.main-nav {
-        display: none;
+      /* General Mobile Spacing */
+      .container {
+        padding-left: 1.15rem !important;
+        padding-right: 1.15rem !important;
+        width: 100% !important;
       }
-      .hamburger-btn {
-        display: block;
+      
+      /* Top Bar */
+      .top-bar {
+        padding: 0.4rem 0.5rem !important;
+        font-size: 0.74rem !important;
+      }
+      .top-bar .container {
+        justify-content: center !important;
+        gap: 0.35rem !important;
+      }
+      .top-bar-badge {
+        font-size: 0.72rem !important;
+        text-align: center !important;
       }
       .top-bar-links {
-        display: none;
+        display: none !important;
       }
-      .btn-nav-order {
-        display: none;
+      
+      /* Header & Navigation */
+      nav.main-nav {
+        display: none !important;
       }
-      .brand-name {
-        font-size: 1.15rem;
+      .hamburger-btn {
+        display: block !important;
+      }
+      .btn-nav-order, .btn-job-header {
+        display: none !important;
+      }
+      .nav-inner {
+        height: 66px !important;
       }
       .brand-avatar {
-        width: 40px;
-        height: 40px;
+        width: 38px !important;
+        height: 38px !important;
       }
-      .strawberry-cards-wrap {
-        grid-template-columns: 1fr;
+      .brand-name {
+        font-size: 1.05rem !important;
+        white-space: nowrap !important;
+        line-height: 1.1 !important;
       }
-      .footer-grid {
-        grid-template-columns: 1fr;
+      .brand-tag {
+        font-size: 0.6rem !important;
+        letter-spacing: 0.1em !important;
       }
-      .form-row {
-        grid-template-columns: 1fr;
+      
+      /* Hero Section */
+      .hero-section {
+        padding: 2.2rem 0 3rem !important;
       }
-      .stats-grid {
-        grid-template-columns: 1fr 1fr;
+      .hero-grid {
+        gap: 2.5rem !important;
+      }
+      .hero-badge {
+        font-size: 0.74rem !important;
+        padding: 0.35rem 0.85rem !important;
+        margin-bottom: 0.85rem !important;
+      }
+      .hero-title {
+        font-size: clamp(2.1rem, 9vw, 2.6rem) !important;
+        line-height: 1.16 !important;
+        margin-bottom: 0.9rem !important;
+      }
+      .hero-desc {
+        font-size: 0.95rem !important;
+        line-height: 1.6 !important;
+        margin-bottom: 1.4rem !important;
+      }
+      .hero-cta-group {
+        display: flex !important;
+        flex-direction: column !important;
+        width: 100% !important;
+        gap: 0.75rem !important;
+        margin-bottom: 1.4rem !important;
+      }
+      .btn-hero-primary, .btn-hero-whatsapp {
+        width: 100% !important;
+        justify-content: center !important;
+        padding: 0.88rem 1.2rem !important;
+        font-size: 0.92rem !important;
+      }
+      .hero-highlights-pills {
+        display: flex !important;
+        flex-wrap: wrap !important;
+        justify-content: center !important;
+        gap: 0.45rem !important;
+      }
+      .highlight-pill {
+        font-size: 0.74rem !important;
+        padding: 0.35rem 0.7rem !important;
       }
       .iphone-frame {
-        width: 270px;
+        width: 260px !important;
+        margin: 0 auto !important;
       }
       .iphone-screen {
-        height: 500px;
+        height: 480px !important;
+      }
+      
+      /* Stats Strip */
+      .stats-strip {
+        padding: 2rem 0 !important;
+      }
+      .stats-grid {
+        grid-template-columns: 1fr 1fr !important;
+        gap: 1.5rem 1rem !important;
+      }
+      .stat-number {
+        font-size: 1.7rem !important;
+      }
+      .stat-label {
+        font-size: 0.76rem !important;
+      }
+      
+      /* Cardápio Section & Horizontal Swipeable Category Tabs */
+      .menu-section {
+        padding: 3.5rem 0 !important;
+      }
+      .section-title {
+        font-size: 1.85rem !important;
+      }
+      .section-desc {
+        font-size: 0.92rem !important;
+        margin-bottom: 1.5rem !important;
+      }
+      .menu-search-wrapper {
+        margin-bottom: 1.2rem !important;
+      }
+      .menu-search-input {
+        font-size: 16px !important;
+        padding: 0.8rem 1rem 0.8rem 2.8rem !important;
+      }
+      .menu-tabs {
+        display: flex !important;
+        flex-wrap: nowrap !important;
+        overflow-x: auto !important;
+        -webkit-overflow-scrolling: touch !important;
+        scrollbar-width: none !important;
+        gap: 0.5rem !important;
+        padding: 0.2rem 0.2rem 0.8rem !important;
+        margin-bottom: 1.6rem !important;
+        justify-content: flex-start !important;
+      }
+      .menu-tabs::-webkit-scrollbar {
+        display: none !important;
+      }
+      .menu-tab-btn {
+        flex: 0 0 auto !important;
+        white-space: nowrap !important;
+        font-size: 0.82rem !important;
+        padding: 0.55rem 1rem !important;
+        border-radius: 9999px !important;
+      }
+      .menu-grid {
+        grid-template-columns: 1fr !important;
+        gap: 1.3rem !important;
+      }
+      .product-card {
+        border-radius: 18px !important;
+        box-shadow: 0 4px 18px rgba(46, 26, 17, 0.08) !important;
+      }
+      .product-img-wrap {
+        height: 200px !important;
+      }
+      .product-body {
+        padding: 1.25rem !important;
+      }
+      .product-name {
+        font-size: 1.15rem !important;
+        margin-bottom: 0.35rem !important;
+      }
+      .product-description {
+        font-size: 0.88rem !important;
+        line-height: 1.55 !important;
+        margin-bottom: 1rem !important;
+      }
+      .product-card-footer {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+        gap: 0.65rem !important;
+        padding-top: 0.9rem !important;
+      }
+      .product-status-tag {
+        font-size: 0.74rem !important;
+        padding: 0.35rem 0.7rem !important;
+      }
+      .btn-order-lp {
+        flex: 1 !important;
+        justify-content: center !important;
+        padding: 0.7rem 0.9rem !important;
+        font-size: 0.82rem !important;
+      }
+      
+      /* About Section */
+      .about-section {
+        padding: 3.5rem 0 !important;
+      }
+      .about-grid {
+        grid-template-columns: 1fr !important;
+        gap: 2.2rem !important;
+      }
+      .about-media {
+        max-width: 100% !important;
+      }
+      .about-main-img {
+        max-height: 280px !important;
+        border-radius: 18px !important;
+        width: 100% !important;
+        object-fit: cover !important;
+      }
+      .about-secondary-card {
+        position: relative !important;
+        right: auto !important;
+        bottom: auto !important;
+        margin: -1.8rem 1rem 0 !important;
+        max-width: calc(100% - 2rem) !important;
+        box-shadow: 0 10px 26px rgba(0,0,0,0.15) !important;
+        border-radius: 14px !important;
+      }
+      .about-pillars {
+        grid-template-columns: 1fr 1fr !important;
+        gap: 0.75rem !important;
+      }
+      .pillar-card {
+        padding: 0.95rem !important;
+      }
+      .pillar-card h4 {
+        font-size: 0.88rem !important;
+      }
+      .pillar-card p {
+        font-size: 0.76rem !important;
+      }
+      
+      /* Strawberry Festival Section */
+      .strawberry-banner {
+        padding: 3.2rem 0 !important;
+      }
+      .strawberry-grid {
+        grid-template-columns: 1fr !important;
+        gap: 2rem !important;
+      }
+      .strawberry-title {
+        font-size: 1.85rem !important;
+      }
+      .strawberry-desc {
+        font-size: 0.92rem !important;
+      }
+      .strawberry-btn {
+        width: 100% !important;
+        justify-content: center !important;
+      }
+      .strawberry-cards-wrap {
+        grid-template-columns: 1fr !important;
+        gap: 1rem !important;
+      }
+      
+      /* Custom Cake Orders */
+      .custom-order-section {
+        padding: 3.5rem 0 !important;
+      }
+      .custom-order-grid {
+        grid-template-columns: 1fr !important;
+        gap: 2.5rem !important;
+      }
+      .custom-order-form {
+        padding: 1.5rem 1.2rem !important;
+        border-radius: 18px !important;
+      }
+      .form-row {
+        grid-template-columns: 1fr !important;
+        gap: 0.8rem !important;
+      }
+      .form-group input, .form-group select, .form-group textarea {
+        font-size: 16px !important;
+      }
+      
+      /* Instagram Feed Section */
+      .instagram-showcase-section {
+        padding: 3.2rem 0 !important;
+      }
+      .ig-showcase-header {
+        flex-direction: column !important;
+        text-align: center !important;
+        gap: 1.2rem !important;
+      }
+      .btn-ig-follow {
+        width: 100% !important;
+        justify-content: center !important;
+      }
+      .ig-feed-gallery {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 0.6rem !important;
+      }
+      
+      /* Hiring Banner Section */
+      .hiring-lp-banner {
+        padding: 3rem 0 !important;
+        text-align: center !important;
+      }
+      .hiring-lp-banner .container > div {
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 1.5rem !important;
+      }
+      .hiring-lp-banner a {
+        width: 100% !important;
+        justify-content: center !important;
+      }
+      
+      /* Footer */
+      .site-footer {
+        padding: 3.5rem 0 2rem !important;
+      }
+      .footer-grid {
+        grid-template-columns: 1fr !important;
+        gap: 2.2rem !important;
+        text-align: center !important;
+      }
+      .footer-socials {
+        justify-content: center !important;
+      }
+      
+      /* Floating WhatsApp Button - Compact & Non-Obtrusive on Mobile */
+      .floating-whatsapp {
+        width: 52px !important;
+        height: 52px !important;
+        bottom: 20px !important;
+        right: 18px !important;
+        font-size: 1.55rem !important;
+        z-index: 998 !important;
+      }
+      .whatsapp-tooltip {
+        display: none !important;
       }
     }
   </style>
@@ -2397,7 +2700,7 @@
                     <div class="ig-story-item">
                       <div class="ig-story-ring">
                         <div class="ig-story-inner">
-                          <img src="images/ig_img_2.jpg" alt="Destaque Bolos" />
+                          <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=150&q=80" alt="Destaque Bolos" />
                         </div>
                       </div>
                       <span class="ig-story-name">Bolos 🎂</span>
@@ -2406,16 +2709,16 @@
                     <div class="ig-story-item">
                       <div class="ig-story-ring">
                         <div class="ig-story-inner">
-                          <img src="images/ig_img_3.jpg" alt="Destaque Clientes" />
+                          <img src="https://images.unsplash.com/photo-1517256064527-09c73fc73e38?auto=format&fit=crop&w=150&q=80" alt="Destaque Cafeteria" />
                         </div>
                       </div>
-                      <span class="ig-story-name">Clientes ❤️</span>
+                      <span class="ig-story-name">Café ☕</span>
                     </div>
 
                     <div class="ig-story-item">
                       <div class="ig-story-ring">
                         <div class="ig-story-inner">
-                          <img src="images/ig_img_4.jpg" alt="Festival de Morangos" />
+                          <img src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?auto=format&fit=crop&w=150&q=80" alt="Festival de Morangos" />
                         </div>
                       </div>
                       <span class="ig-story-name">Festival 🍓</span>
@@ -2424,35 +2727,35 @@
                     <div class="ig-story-item">
                       <div class="ig-story-ring">
                         <div class="ig-story-inner">
-                          <img src="images/ig_img_6.jpg" alt="Desde 1987" />
+                          <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=150&q=80" alt="Pães Artesanais" />
                         </div>
                       </div>
-                      <span class="ig-story-name">História 🥖</span>
+                      <span class="ig-story-name">Fornadas 🥖</span>
                     </div>
                   </div>
 
                   <!-- Real Posts Grid -->
                   <div class="ig-posts-grid">
                     <div class="ig-post-thumb">
-                      <img src="images/ig_img_4.jpg" alt="Festival de Morangos post" />
+                      <img src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?auto=format&fit=crop&w=400&q=80" alt="Torta de Morango" />
                       <i class="fas fa-play ig-post-type-icon"></i>
                     </div>
                     <div class="ig-post-thumb">
-                      <img src="images/ig_img_5.jpg" alt="Doces gourmet post" />
+                      <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=400&q=80" alt="Bolo Vulcão" />
                       <i class="fas fa-play ig-post-type-icon"></i>
                     </div>
                     <div class="ig-post-thumb">
-                      <img src="images/ig_img_6.jpg" alt="Belém Pães e Doces Desde 1987" />
+                      <img src="images/ig_img_10.jpg" alt="Bolo Artístico Belém Pães e Doces" />
                     </div>
                     <div class="ig-post-thumb">
-                      <img src="images/ig_img_7.jpg" alt="Sobremesas e bolos post" />
+                      <img src="https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=400&q=80" alt="Bolo de Chocolate" />
                       <i class="fas fa-play ig-post-type-icon"></i>
                     </div>
                     <div class="ig-post-thumb">
-                      <img src="images/ig_img_8.jpg" alt="Pães e salgados post" />
+                      <img src="images/ig_img_8.jpg" alt="Bolo de Milho Colonial" />
                     </div>
                     <div class="ig-post-thumb">
-                      <img src="images/ig_img_9.jpg" alt="Fornada de pães post" />
+                      <img src="https://images.unsplash.com/photo-1586444248902-2f64eddc13df?auto=format&fit=crop&w=400&q=80" alt="Fornada de pães" />
                       <i class="fas fa-play ig-post-type-icon"></i>
                     </div>
                   </div>
@@ -2529,10 +2832,10 @@
             <span class="year">1987</span>
             <span class="text">Desde</span>
           </div>
-          <img src="images/ig_img_6.jpg" alt="História da Belém Pães e Doces Desde 1987" class="about-main-img" />
+          <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=1000&q=80" alt="Pães artesanais quentinhos saindo do forno da Belém Pães e Doces" class="about-main-img" />
           
           <div class="about-secondary-card">
-            <img src="images/ig_img_8.jpg" alt="Pães e doces artesanais saindo do forno" />
+            <img src="images/ig_img_8.jpg" alt="Bolo de milho colonial puro sabor artesanal" />
             <p>Fornada fresquinha feita com amor</p>
           </div>
         </div>
@@ -2602,16 +2905,16 @@
 
         <div class="strawberry-cards-wrap">
           <div class="strawberry-card">
-            <img src="images/ig_img_4.jpg" alt="Torta e sobremesa do Festival de Morangos" />
+            <img src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?auto=format&fit=crop&w=800&q=80" alt="Torta e sobremesa do Festival de Morangos" />
             <div class="strawberry-card-body">
               <h4>Taça & Torta de Morango</h4>
               <p>Cremosa, com morangos frescos e ganache especial da casa.</p>
             </div>
           </div>
           <div class="strawberry-card">
-            <img src="images/ig_img_7.jpg" alt="Bolos especiais para o Dia dos Pais e festas" />
+            <img src="https://images.unsplash.com/photo-1619895092538-128341789043?auto=format&fit=crop&w=800&q=80" alt="Bombons de Morango e Doces Especiais" />
             <div class="strawberry-card-body">
-              <h4>Bolo Especial de Frutas</h4>
+              <h4>Bolo & Bombom de Frutas</h4>
               <p>Montado no capricho para suas comemorações de família.</p>
             </div>
           </div>
@@ -2793,7 +3096,7 @@
 
       <div class="ig-feed-gallery">
         <a href="https://www.instagram.com/_belempaesedoces/" target="_blank" class="ig-feed-item">
-          <img src="images/ig_img_4.jpg" alt="Festival de Morangos" />
+          <img src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?auto=format&fit=crop&w=600&q=80" alt="Torta Nevada de Morango" />
           <div class="ig-feed-overlay">
             <i class="fab fa-instagram"></i>
             <span>Festival de Morangos</span>
@@ -2801,58 +3104,58 @@
         </a>
 
         <a href="https://www.instagram.com/_belempaesedoces/" target="_blank" class="ig-feed-item">
-          <img src="images/ig_img_5.jpg" alt="Sobremesas e doces artesanais" />
+          <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=600&q=80" alt="Bolo Vulcão de Cenoura com Chocolate Belga" />
           <div class="ig-feed-overlay">
             <i class="fab fa-instagram"></i>
-            <span>Doces & Confeitaria</span>
+            <span>Bolo Vulcão</span>
           </div>
         </a>
 
         <a href="https://www.instagram.com/_belempaesedoces/" target="_blank" class="ig-feed-item">
-          <img src="images/ig_img_6.jpg" alt="Belém Pães e Doces Desde 1987" />
+          <img src="https://images.unsplash.com/photo-1586444248902-2f64eddc13df?auto=format&fit=crop&w=600&q=80" alt="Pão Francês Quentinho" />
           <div class="ig-feed-overlay">
             <i class="fab fa-instagram"></i>
-            <span>Desde 1987</span>
+            <span>Pão Francês Crocante</span>
           </div>
         </a>
 
         <a href="https://www.instagram.com/_belempaesedoces/" target="_blank" class="ig-feed-item">
-          <img src="images/ig_img_7.jpg" alt="Bolos com morango especiais" />
+          <img src="https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=600&q=80" alt="Torta Trufada de Chocolate Nobre" />
           <div class="ig-feed-overlay">
             <i class="fab fa-instagram"></i>
-            <span>Bolos Festivos</span>
+            <span>Torta Trufada</span>
           </div>
         </a>
 
         <a href="https://www.instagram.com/_belempaesedoces/" target="_blank" class="ig-feed-item">
-          <img src="images/ig_img_8.jpg" alt="Pães quentinhos e doces" />
+          <img src="images/ig_img_8.jpg" alt="Bolo de Milho Colonial Tipo Pamonha da Belém" />
           <div class="ig-feed-overlay">
             <i class="fab fa-instagram"></i>
-            <span>Fornada do Dia</span>
+            <span>Bolo de Milho Colonial</span>
           </div>
         </a>
 
         <a href="https://www.instagram.com/_belempaesedoces/" target="_blank" class="ig-feed-item">
-          <img src="images/ig_img_9.jpg" alt="Pães artesanais especiais" />
+          <img src="https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?auto=format&fit=crop&w=600&q=80" alt="Pão de Queijo Dourado e Quentinho" />
           <div class="ig-feed-overlay">
             <i class="fab fa-instagram"></i>
-            <span>Pães Artesanais</span>
+            <span>Pão de Queijo Mineiro</span>
           </div>
         </a>
 
         <a href="https://www.instagram.com/_belempaesedoces/" target="_blank" class="ig-feed-item">
-          <img src="images/ig_img_10.jpg" alt="Produção de panificação artesanal" />
+          <img src="images/ig_img_10.jpg" alt="Bolo Artístico Lambeth Belém Pães e Doces" />
           <div class="ig-feed-overlay">
             <i class="fab fa-instagram"></i>
-            <span>Feito com Amor</span>
+            <span>Bolos Artísticos</span>
           </div>
         </a>
 
         <a href="https://www.instagram.com/_belempaesedoces/" target="_blank" class="ig-feed-item">
-          <img src="images/ig_img_14.jpg" alt="Delícias no balcão" />
+          <img src="https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=600&q=80" alt="Coxinhas Douradas com Catupiry" />
           <div class="ig-feed-overlay">
             <i class="fab fa-instagram"></i>
-            <span>Balcão Sempre Cheio</span>
+            <span>Salgados do Balcão</span>
           </div>
         </a>
       </div>
@@ -3145,7 +3448,7 @@
   <script>
     // Product catalog for the Landing Page - Authentic Offerings from @_belempaesedoces
     const PRODUCTS = [
-      // BOLOS & TORTAS (Fotos Reais do Instagram)
+      // BOLOS & TORTAS (Fotos Reais 100% Comida - Sem Texto)
       {
         id: 'torta-morango-ninho',
         category: 'bolos',
@@ -3154,7 +3457,7 @@
         badge: 'Festival do Morango',
         statusTag: 'Destaque Instagram',
         special: true,
-        img: 'images/ig_img_14.jpg'
+        img: 'https://images.unsplash.com/photo-1565958011703-44f9829ba187?auto=format&fit=crop&w=800&q=80'
       },
       {
         id: 'bolo-cenoura-vulcao',
@@ -3164,7 +3467,7 @@
         badge: 'Vídeo Viral',
         statusTag: 'Fornada Diária',
         special: true,
-        img: 'images/ig_img_12.jpg'
+        img: 'https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=800&q=80'
       },
       {
         id: 'bolo-chocolate-trufado',
@@ -3173,7 +3476,7 @@
         desc: 'Camadas generosas de massa de cacau intenso, recheio trufado cremoso e cobertura com pedaços crocantes de chocolate.',
         badge: 'Chocólatras',
         statusTag: 'Receita Especial',
-        img: 'images/ig_img_13.jpg'
+        img: 'https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=800&q=80'
       },
       {
         id: 'bolo-milho-colonial',
@@ -3197,11 +3500,11 @@
       {
         id: 'torta-festiva-morango',
         category: 'bolos',
-        name: 'Torta Comemorativa de Morangos & Raspas Brancas',
-        desc: 'Cobertura aveludada de chantilly artesanal, raspas fartas de chocolate branco nobre e morangos frescos.',
+        name: 'Torta Comemorativa de Morangos & Chantilly',
+        desc: 'Cobertura aveludada de chantilly artesanal, raspas fartas de chocolate nobre e morangos frescos no topo.',
         badge: 'Mais Pedida',
         statusTag: 'Pronta Entrega / Encomenda',
-        img: 'images/ig_img_7.jpg'
+        img: 'https://images.unsplash.com/photo-1588195538326-c5b1e9f80a1b?auto=format&fit=crop&w=800&q=80'
       },
       {
         id: 'fatia-torta-trufada',
@@ -3210,10 +3513,10 @@
         desc: 'Generosa fatia individual com recheio cremoso e raspas artesanais de puro chocolate ao leite da nossa confeitaria.',
         badge: 'Desejo de Balcão',
         statusTag: 'Fatia Individual',
-        img: 'images/ig_img_15.jpg'
+        img: 'https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?auto=format&fit=crop&w=800&q=80'
       },
 
-      // DOCES & FESTIVAL DO MORANGO (Fotos Reais do Instagram)
+      // DOCES & FESTIVAL DO MORANGO (Fotos 100% Comida)
       {
         id: 'bombons-festival-morango',
         category: 'doces',
@@ -3222,7 +3525,7 @@
         badge: 'Festival Sexta-Feira',
         statusTag: 'Edição Especial',
         special: true,
-        img: 'images/ig_img_4.jpg'
+        img: 'https://images.unsplash.com/photo-1619895092538-128341789043?auto=format&fit=crop&w=800&q=80'
       },
       {
         id: 'vitrine-doces-finos',
@@ -3231,7 +3534,7 @@
         desc: 'Nossa vitrine diária de sobremesas: doces delicados, trufas enroladas à mão e brigadeiros gourmet com ingredientes selecionados.',
         badge: 'Vitrine do Dia',
         statusTag: 'Produção Fresca',
-        img: 'images/ig_img_5.jpg'
+        img: 'https://images.unsplash.com/photo-1587314168485-3236d6710814?auto=format&fit=crop&w=800&q=80'
       },
       {
         id: 'sonho-artesanal',
@@ -3240,7 +3543,7 @@
         desc: 'Massa leve e fofinha frita no ponto exato, coberta com açúcar de confeiteiro e recheio farto de creme de baunilha.',
         badge: 'Clássico 1987',
         statusTag: 'Saindo do Forno',
-        img: 'https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=600&q=80'
+        img: 'https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=800&q=80'
       },
       {
         id: 'trio-brigadeiros-belga',
@@ -3249,7 +3552,7 @@
         desc: 'Ao leite clássico, chocolate meio amargo e ninho com recheio especial. Feitos com manteiga de primeira e cacau puro.',
         badge: 'Gourmet',
         statusTag: 'Disponível no Balcão',
-        img: 'https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?auto=format&fit=crop&w=600&q=80'
+        img: 'https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?auto=format&fit=crop&w=800&q=80'
       },
 
       // PÃES & FORNADAS
@@ -3260,7 +3563,7 @@
         desc: 'Casca crocante e dourada, miolo macio e aveludado. Fornadas quentinhas saindo a cada 2 horas do nosso forno.',
         badge: 'Campeão de Vendas',
         statusTag: 'Fornadas Contínuas',
-        img: 'https://images.unsplash.com/photo-1585478259715-4d4e4b77ec1a?auto=format&fit=crop&w=600&q=80'
+        img: 'https://images.unsplash.com/photo-1586444248902-2f64eddc13df?auto=format&fit=crop&w=800&q=80'
       },
       {
         id: 'pao-multigraos',
@@ -3269,7 +3572,7 @@
         desc: 'Farinha integral pura, chia, linhaça dourada, aveia e sementes de girassol. 100% natural e rico em fibras.',
         badge: 'Saudável',
         statusTag: 'Fornada Matinal',
-        img: 'https://images.unsplash.com/photo-1549931319-a545dcf3bc73?auto=format&fit=crop&w=600&q=80'
+        img: 'https://images.unsplash.com/photo-1549931319-a545dcf3bc73?auto=format&fit=crop&w=800&q=80'
       },
       {
         id: 'pao-queijo-mineiro',
@@ -3278,7 +3581,7 @@
         desc: 'Receita legítima com queijo da serra, casquinha dourada crocante e puxa-puxa perfeito no centro.',
         badge: 'Quentinho',
         statusTag: 'Saindo Toda Hora',
-        img: 'https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?auto=format&fit=crop&w=600&q=80'
+        img: 'https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?auto=format&fit=crop&w=800&q=80'
       },
 
       // SALGADOS & LANCHES
@@ -3289,7 +3592,7 @@
         desc: 'Massa artesanal de batata cozida, recheio bem temperado de frango desfiado e queijo catupiry cremoso.',
         badge: 'Favorito do Balcão',
         statusTag: 'Estufa Quente',
-        img: 'https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=600&q=80'
+        img: 'https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=800&q=80'
       },
       {
         id: 'croissant-folhado',
@@ -3298,7 +3601,7 @@
         desc: 'Massa folhada fina com manteiga pura de primeira linha, dourada no forno com queijo derretido.',
         badge: 'Folhado Artesanal',
         statusTag: 'Fornada do Dia',
-        img: 'https://images.unsplash.com/photo-1612929633738-8fe44f7ec841?auto=format&fit=crop&w=600&q=80'
+        img: 'https://images.unsplash.com/photo-1612929633738-8fe44f7ec841?auto=format&fit=crop&w=800&q=80'
       },
       {
         id: 'cento-salgadinhos-festa',
@@ -3307,7 +3610,7 @@
         desc: 'Mix crocante preparado sob encomenda: coxinhas, bolinhas de queijo, kibes recheados e empadas.',
         badge: 'Kit Festa',
         statusTag: 'Sob Encomenda',
-        img: 'https://images.unsplash.com/photo-1515516969-d4008cc6241a?auto=format&fit=crop&w=600&q=80'
+        img: 'https://images.unsplash.com/photo-1515516969-d4008cc6241a?auto=format&fit=crop&w=800&q=80'
       },
 
       // CAFETERIA ESPECIAL
@@ -3318,7 +3621,7 @@
         desc: 'Café expresso especial cremoso, leite vaporizado aveludado e borda generosa com nosso doce de leite artesanal.',
         badge: 'Cafeteria Afetiva',
         statusTag: 'Feito na Hora',
-        img: 'https://images.unsplash.com/photo-1517256064527-09c73fc73e38?auto=format&fit=crop&w=600&q=80'
+        img: 'https://images.unsplash.com/photo-1517256064527-09c73fc73e38?auto=format&fit=crop&w=800&q=80'
       },
       {
         id: 'chocolate-quente-cremoso',
@@ -3327,7 +3630,7 @@
         desc: 'Textura aveludada e aroma acolhedor de canela com chocolate nobre derretido no vapor.',
         badge: 'Conforto & Sabor',
         statusTag: 'Servido Quente',
-        img: 'https://images.unsplash.com/photo-1542990253-0d0f5be5f0ed?auto=format&fit=crop&w=600&q=80'
+        img: 'https://images.unsplash.com/photo-1542990253-0d0f5be5f0ed?auto=format&fit=crop&w=800&q=80'
       }
     ];
 
