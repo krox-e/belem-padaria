@@ -69,12 +69,13 @@
     }
 
     .container {
-      width: 95%;
-      max-width: 1480px;
+      width: 100%;
+      max-width: 1440px;
       margin-left: auto;
       margin-right: auto;
-      padding-left: 2rem;
-      padding-right: 2rem;
+      padding-left: clamp(1rem, 3.5vw, 2.5rem);
+      padding-right: clamp(1rem, 3.5vw, 2.5rem);
+      box-sizing: border-box;
     }
 
     /* Top Bar */
@@ -452,10 +453,30 @@
     }
     .footer-logo span { color: var(--primary-gold); }
 
+    /* ==========================================================================
+       RESPONSIVE BREAKPOINTS: TRABALHE CONOSCO
+       ========================================================================== */
+
+    @media (max-width: 1080px) {
+      .nav-links {
+        gap: 1.2rem;
+      }
+      .nav-links a {
+        font-size: 0.88rem;
+      }
+      .btn-apply-whatsapp {
+        padding: 0.65rem 1.2rem;
+        font-size: 0.85rem;
+      }
+    }
+
     @media (max-width: 900px) {
+      .nav-links {
+        display: none !important;
+      }
       .career-grid {
         grid-template-columns: 1fr;
-        gap: 3rem;
+        gap: 2.5rem;
       }
       .poster-wrap {
         position: static;
@@ -469,8 +490,8 @@
 
     @media (max-width: 768px) {
       .container {
-        padding-left: 1.15rem !important;
-        padding-right: 1.15rem !important;
+        padding-left: clamp(1rem, 4vw, 1.25rem) !important;
+        padding-right: clamp(1rem, 4vw, 1.25rem) !important;
         width: 100% !important;
       }
       .top-bar {
@@ -489,7 +510,8 @@
         display: inline-flex !important;
         align-items: center !important;
         gap: 0.4rem !important;
-        font-size: 0.78rem !important;
+        font-size: 0.82rem !important;
+        min-height: 36px !important;
       }
       
       .nav-inner {
@@ -500,24 +522,22 @@
         height: 38px !important;
       }
       .brand-name {
-        font-size: 1.05rem !important;
+        font-size: clamp(0.95rem, 3.8vw, 1.15rem) !important;
         white-space: nowrap !important;
       }
       .brand-tag {
         font-size: 0.6rem !important;
       }
-      .nav-links {
-        display: none !important;
-      }
       .btn-apply-whatsapp {
         padding: 0.55rem 0.95rem !important;
-        font-size: 0.78rem !important;
+        font-size: 0.8rem !important;
         gap: 0.35rem !important;
         border-radius: 9999px !important;
+        min-height: 40px !important;
       }
       
       .career-hero {
-        padding: 2.4rem 0 2rem !important;
+        padding: 2.2rem 0 1.8rem !important;
         text-align: center !important;
       }
       .career-hero h1 {
@@ -531,7 +551,7 @@
       }
       
       .career-main-section {
-        padding: 2rem 0 3.5rem !important;
+        padding: 1.8rem 0 3.2rem !important;
       }
       .career-grid {
         gap: 2rem !important;
@@ -541,14 +561,14 @@
         border-radius: 18px !important;
       }
       .routine-card {
-        padding: 1.4rem !important;
+        padding: 1.35rem 1.15rem !important;
         border-radius: 18px !important;
       }
       .routine-card h3 {
         font-size: 1.25rem !important;
       }
       .schedule-item {
-        padding: 0.75rem 0.9rem !important;
+        padding: 0.75rem 0.85rem !important;
         gap: 0.7rem !important;
       }
       .schedule-time {
@@ -569,21 +589,23 @@
         padding: 0.85rem !important;
       }
       
-      .apply-box {
-        padding: 1.6rem 1.2rem !important;
+      .application-card {
+        padding: 1.5rem 1.15rem !important;
         border-radius: 18px !important;
       }
-      .apply-form input, .apply-form select, .apply-form textarea {
+      .form-control {
         font-size: 16px !important;
+        min-height: 48px !important;
       }
       .btn-submit-app {
         width: 100% !important;
         justify-content: center !important;
-        padding: 0.9rem !important;
+        padding: 0.95rem !important;
         font-size: 0.95rem !important;
+        min-height: 50px !important;
       }
       .site-footer {
-        padding: 3rem 0 2rem !important;
+        padding: 2.8rem 0 2rem !important;
         text-align: center !important;
       }
       .footer-grid {
@@ -592,6 +614,30 @@
       }
       .footer-socials {
         justify-content: center !important;
+      }
+    }
+
+    @media (max-width: 380px) {
+      .container {
+        padding-left: 0.85rem !important;
+        padding-right: 0.85rem !important;
+      }
+      .brand-avatar {
+        width: 34px !important;
+        height: 34px !important;
+      }
+      .brand-name {
+        font-size: 0.92rem !important;
+      }
+      .btn-apply-whatsapp {
+        padding: 0.45rem 0.75rem !important;
+        font-size: 0.74rem !important;
+      }
+      .career-hero h1 {
+        font-size: 1.65rem !important;
+      }
+      .routine-card, .application-card {
+        padding: 1.15rem 0.85rem !important;
       }
     }
   </style>

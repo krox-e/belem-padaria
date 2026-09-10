@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gradient Wave | Demo Interativo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body, html {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: #000;
+    }
+
+    /* Container matching: relative h-screen w-full flex items-center justify-center */
+    .demo-container {
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    /* Canvas background */
+    #waveCanvas {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      display: block;
+      z-index: 1;
+    }
+
+    /* Heading matching: text-black tracking-tighter text-7xl font-bold text-center z-10 */
+    .title {
+      position: relative;
+      z-index: 10;
+      font-size: clamp(3rem, 7vw, 5.5rem);
+      font-weight: 800;
+      letter-spacing: -0.05em;
+      color: #000000;
+      text-align: center;
+      user-select: none;
+      pointer-events: none;
+      line-height: 1;
+      text-shadow: 0 1px 20px rgba(255, 255, 255, 0.4);
+    }
+
+    /* Glass Control Panel Floating in Bottom-Left */
+    .controls-panel {
+      position: absolute;
+      bottom: 24px;
+      left: 24px;
+      z-index: 30;
+      background: rgba(255, 255, 255, 0.75);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.6);
+      border-radius: 16px;
+      padding: 16px 20px;
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.12);
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      max-width: 320px;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .controls-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 13px;
+      font-weight: 700;
+      color: #0f172a;
+      letter-spacing: -0.01em;
+    }
+
+    .badge {
+      background: #0284c7;
+      color: #fff;
+      font-size: 10px;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 999px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .theme-buttons {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 6px;
+    }
+
+    .theme-btn {
+      border: none;
+      outline: none;
+      padding: 6px 8px;
+      border-radius: 8px;
+      font-size: 11px;
+      font-weight: 600;
+      cursor: pointer;
+      background: rgba(0, 0, 0, 0.06);
+      color: #1e293b;
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      justify-content: center;
+    }
+
+    .theme-btn.active {
+      background: #0f172a;
+      color: #ffffff;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    }
+
+    .theme-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      display: inline-block;
+    }
+
+    .slider-group {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .slider-label {
+      display: flex;
+      justify-content: space-between;
+      font-size: 11px;
+      font-weight: 600;
+      color: #475569;
+    }
+
+    input[type="range"] {
+      -webkit-appearance: none;
+      width: 100%;
+      height: 4px;
+      background: rgba(0, 0, 0, 0.1);
+      border-radius: 999px;
+      outline: none;
+    }
+
+    input[type="range"]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: #0284c7;
+      cursor: pointer;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.2);
+      transition: transform 0.1s;
+    }
+
+    input[type="range"]::-webkit-slider-thumb:hover {
+      transform: scale(1.2);
+    }
+
+    /* Top Navigation bar */
+    .top-bar {
+      position: absolute;
+      top: 24px;
+      left: 24px;
+      right: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 30;
+      pointer-events: none;
+    }
+
+    .top-btn {
+      pointer-events: auto;
+      background: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.7);
+      border-radius: 12px;
+      padding: 8px 16px;
+      font-size: 13px;
+      font-weight: 700;
+      color: #0f172a;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+      transition: all 0.2s ease;
+      cursor: pointer;
+    }
+
+    .top-btn:hover {
+      background: #ffffff;
+      transform: translateY(-1px);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+    }
+
+    /* Modal / Code Sheet */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(6px);
+      z-index: 100;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+
+    .modal-content {
+      background: #0f172a;
+      color: #e2e8f0;
+      border-radius: 20px;
+      max-width: 800px;
+      width: 100%;
+      max-height: 85vh;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 25px 60px rgba(0,0,0,0.5);
+      border: 1px solid rgba(255,255,255,0.1);
+      overflow: hidden;
+    }
+
+    .modal-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 24px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .modal-tabs {
+      display: flex;
+      gap: 8px;
+    }
+
+    .tab-btn {
+      background: transparent;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: #94a3b8;
+      padding: 6px 14px;
+      border-radius: 8px;
+      font-size: 12px;
+      font-family: 'JetBrains Mono', monospace;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .tab-btn.active {
+      background: #0284c7;
+      color: #fff;
+      border-color: #0284c7;
+    }
+
+    .code-body {
+      padding: 20px 24px;
+      overflow-y: auto;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 13px;
+      line-height: 1.6;
+      white-space: pre;
+      color: #38bdf8;
+      background: #020617;
+    }
+
+    .modal-actions {
+      display: flex;
+      justify-content: flex-end;
+      gap: 10px;
+      padding: 14px 24px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .action-btn {
+      background: #0284c7;
+      color: #ffffff;
+      border: none;
+      padding: 8px 18px;
+      border-radius: 8px;
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .action-btn:hover {
+      background: #0369a1;
+    }
+
+    .close-btn {
+      background: rgba(255, 255, 255, 0.1);
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      padding: 8px 16px;
+      cursor: pointer;
+      font-size: 12px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="top-bar">
+    <a href="/index.html" class="top-btn">
+      ← Voltar para Padaria Belém
+    </a>
+    <div style="display: flex; gap: 10px;">
+      <button class="top-btn" onclick="openModal()">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="16 18 22 12 16 6"></polyline>
+          <polyline points="8 6 2 12 8 18"></polyline>
+        </svg>
+        Ver Código TSX (React)
+      </button>
+    </div>
+  </div>
+
+  <div class="demo-container">
+    <canvas id="waveCanvas"></canvas>
+    <h1 class="title">Gradient Wave</h1>
+  </div>
+
+  <!-- Interactive Controls Panel -->
+  <div class="controls-panel">
+    <div class="controls-header">
+      <span>Controles da Onda</span>
+      <span class="badge">Ativo 60fps</span>
+    </div>
+
+    <div class="theme-buttons">
+      <button class="theme-btn active" onclick="setTheme('sky')">
+        <span class="theme-dot" style="background:#0284c7;"></span> Sky (21st)
+      </button>
+      <button class="theme-btn" onclick="setTheme('gold')">
+        <span class="theme-dot" style="background:#D6963E;"></span> Dourado
+      </button>
+      <button class="theme-btn" onclick="setTheme('sunset')">
+        <span class="theme-dot" style="background:#ec4899;"></span> Sunset
+      </button>
+    </div>
+
+    <div class="slider-group">
+      <div class="slider-label">
+        <span>Velocidade</span>
+        <span id="speedVal">0.006</span>
+      </div>
+      <input type="range" id="speedSlider" min="0.001" max="0.02" step="0.001" value="0.006" />
+    </div>
+
+    <div class="slider-group">
+      <div class="slider-label">
+        <span>Amplitude</span>
+        <span id="ampVal">50px</span>
+      </div>
+      <input type="range" id="ampSlider" min="15" max="100" step="5" value="50" />
+    </div>
+  </div>
+
+  <!-- Modal for TSX code -->
+  <div class="modal-overlay" id="codeModal" onclick="if(event.target===this) closeModal()">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="modal-tabs">
+          <button class="tab-btn active" id="tabComponent" onclick="switchTab('component')">gradient-wave.tsx</button>
+          <button class="tab-btn" id="tabUsage" onclick="switchTab('usage')">usage.tsx</button>
+        </div>
+        <button class="close-btn" onclick="closeModal()">✕</button>
+      </div>
+      <div class="code-body" id="codeDisplay">Carregando código...</div>
+      <div class="modal-actions">
+        <button class="action-btn" onclick="copyCode()">Copiar Código</button>
+        <button class="close-btn" onclick="closeModal()">Fechar</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Theme Presets
+    const THEMES = {
+      sky: {
+        bg: ["#7dd3fc", "#38bdf8", "#60a5fa", "#bae6fd"],
+        glow: "rgba(255, 255, 255, 0.45)",
+        colors: ["#38bdf8", "#0ea5e9", "#7dd3fc", "#bae6fd", "#ffffff"],
+        ribbon: ["rgba(255,255,255,0.95)", "rgba(186,230,253,0.85)", "rgba(56,189,248,0.75)", "rgba(2,132,199,0.65)"],
+        titleColor: "#000000"
+      },
+      gold: {
+        bg: ["#F7EFE3", "#F4BA53", "#D6963E", "#FFF7ED"],
+        glow: "rgba(255, 247, 237, 0.6)",
+        colors: ["#F4BA53", "#D6963E", "#BF8029", "#FFF7ED", "#ffffff"],
+        ribbon: ["rgba(255,255,255,0.95)", "rgba(244,186,83,0.85)", "rgba(214,150,62,0.75)", "rgba(74,46,32,0.65)"],
+        titleColor: "#2E1A11"
+      },
+      sunset: {
+        bg: ["#f472b6", "#c084fc", "#818cf8", "#fbcfe8"],
+        glow: "rgba(255, 255, 255, 0.5)",
+        colors: ["#fb7185", "#f43f5e", "#d946ef", "#a855f7", "#ffffff"],
+        ribbon: ["rgba(255,255,255,0.95)", "rgba(251,207,232,0.85)", "rgba(244,63,94,0.75)", "rgba(168,85,247,0.65)"],
+        titleColor: "#0f172a"
+      }
+    };
+
+    let currentTheme = THEMES.sky;
+    let speed = 0.006;
+    let amplitude = 50;
+    let waveCount = 4;
+    let time = 0;
+
+    const canvas = document.getElementById("waveCanvas");
+    const ctx = canvas.getContext("2d");
+    const mouse = { x: 0.5, y: 0.5, targetX: 0.5, targetY: 0.5 };
+
+    function resize() {
+      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      canvas.width = window.innerWidth * dpr;
+      canvas.height = window.innerHeight * dpr;
+      ctx.scale(dpr, dpr);
+    }
+
+    window.addEventListener("resize", resize);
+    resize();
+
+    window.addEventListener("mousemove", (e) => {
+      mouse.targetX = Math.max(0, Math.min(1, e.clientX / window.innerWidth));
+      mouse.targetY = Math.max(0, Math.min(1, e.clientY / window.innerHeight));
+    });
+
+    function hexToRgba(hex, alpha) {
+      if (hex.startsWith("rgba")) return hex;
+      let clean = hex.replace("#", "");
+      if (clean.length === 3) clean = clean.split("").map(c => c + c).join("");
+      const num = parseInt(clean, 16);
+      return `rgba(${(num >> 16) & 255}, ${(num >> 8) & 255}, ${num & 255}, ${alpha})`;
+    }
+
+    function render() {
+      const width = window.innerWidth;
+      const height = window.innerHeight;
+
+      // Mouse lerping
+      mouse.x += (mouse.targetX - mouse.x) * 0.05;
+      mouse.y += (mouse.targetY - mouse.y) * 0.05;
+
+      time += speed;
+
+      ctx.clearRect(0, 0, width, height);
+
+      // 1. Sky radiant wash background
+      const bgGrad = ctx.createLinearGradient(0, 0, width, height);
+      bgGrad.addColorStop(0, currentTheme.bg[0]);
+      bgGrad.addColorStop(0.35, currentTheme.bg[1]);
+      bgGrad.addColorStop(0.7, currentTheme.bg[2]);
+      bgGrad.addColorStop(1, currentTheme.bg[3]);
+      ctx.fillStyle = bgGrad;
+      ctx.fillRect(0, 0, width, height);
+
+      // 2. Ambient luminous soft glow
+      const glowX = width * (0.3 + mouse.x * 0.4);
+      const glowY = height * (0.2 + mouse.y * 0.3);
+      const ambientGlow = ctx.createRadialGradient(
+        glowX, glowY, width * 0.05,
+        glowX, glowY, width * 0.75
+      );
+      ambientGlow.addColorStop(0, currentTheme.glow);
+      ambientGlow.addColorStop(0.5, "rgba(255, 255, 255, 0.15)");
+      ambientGlow.addColorStop(1, "rgba(255, 255, 255, 0)");
+      ctx.fillStyle = ambientGlow;
+      ctx.fillRect(0, 0, width, height);
+
+      // 3. Multi-layer Organic Gradient Waves
+      for (let i = 0; i < waveCount; i++) {
+        const progress = i / (waveCount - 1);
+        const waveBaseY = height * (0.38 + progress * 0.38);
+        const waveAmp = amplitude * (0.8 + Math.sin(time + i) * 0.25);
+        const freq = 0.0018 + i * 0.0006;
+        const phase = time * (0.8 + i * 0.4) + i * 2.1;
+        const mouseShift = (mouse.x - 0.5) * 60 * (1 - progress);
+
+        ctx.beginPath();
+        ctx.moveTo(0, height);
+
+        const step = 8;
+        for (let x = 0; x <= width + step; x += step) {
+          const nx = x + mouseShift;
+          const y = waveBaseY +
+            Math.sin(nx * freq + phase) * waveAmp +
+            Math.cos(nx * freq * 0.65 - phase * 0.7) * (waveAmp * 0.45) +
+            Math.sin(nx * 0.004 + time * 0.5) * (waveAmp * 0.2);
+
+          ctx.lineTo(x, y);
+        }
+
+        ctx.lineTo(width, height);
+        ctx.closePath();
+
+        const waveGrad = ctx.createLinearGradient(0, waveBaseY - waveAmp, width, height);
+        const c1 = currentTheme.colors[i % currentTheme.colors.length];
+        const c2 = currentTheme.colors[(i + 1) % currentTheme.colors.length];
+        const alpha = 0.55 + progress * 0.35;
+
+        waveGrad.addColorStop(0, hexToRgba(c1, alpha * 0.75));
+        waveGrad.addColorStop(0.5, hexToRgba(c2, alpha));
+        waveGrad.addColorStop(1, hexToRgba(currentTheme.colors[currentTheme.colors.length - 1], alpha * 0.9));
+
+        ctx.fillStyle = waveGrad;
+        ctx.fill();
+
+        ctx.lineWidth = 1.5;
+        ctx.strokeStyle = `rgba(255, 255, 255, ${0.25 + progress * 0.45})`;
+        ctx.stroke();
+      }
+
+      // 4. Foreground Luminous Rolling Ribbon Wave
+      const ribbonY = height * 0.78 + Math.sin(time * 0.7) * 20 - (mouse.y - 0.5) * 30;
+      ctx.beginPath();
+      ctx.moveTo(0, height);
+      ctx.lineTo(0, ribbonY + 40);
+
+      const cp1x = width * 0.25 + Math.cos(time * 0.5) * 40;
+      const cp1y = ribbonY - 80 + Math.sin(time * 0.8) * 30;
+      const cp2x = width * 0.65 + Math.sin(time * 0.6) * 50;
+      const cp2y = ribbonY - 40 - Math.cos(time * 0.5) * 25;
+      const endX = width;
+      const endY = ribbonY + 20;
+
+      ctx.bezierCurveTo(cp1x, cp1y, cp2x, cp2y, endX, endY);
+      ctx.lineTo(width, height);
+      ctx.closePath();
+
+      const ribbonGrad = ctx.createLinearGradient(0, ribbonY - 80, width, height);
+      ribbonGrad.addColorStop(0, currentTheme.ribbon[0]);
+      ribbonGrad.addColorStop(0.35, currentTheme.ribbon[1]);
+      ribbonGrad.addColorStop(0.7, currentTheme.ribbon[2]);
+      ribbonGrad.addColorStop(1, currentTheme.ribbon[3]);
+
+      ctx.fillStyle = ribbonGrad;
+      ctx.fill();
+
+      ctx.lineWidth = 2;
+      ctx.strokeStyle = "rgba(255, 255, 255, 0.9)";
+      ctx.stroke();
+
+      requestAnimationFrame(render);
+    }
+
+    requestAnimationFrame(render);
+
+    // Controls
+    function setTheme(name) {
+      currentTheme = THEMES[name] || THEMES.sky;
+      document.querySelectorAll(".theme-btn").forEach(btn => btn.classList.remove("active"));
+      event.target.closest(".theme-btn").classList.add("active");
+      document.querySelector(".title").style.color = currentTheme.titleColor;
+    }
+
+    const speedSlider = document.getElementById("speedSlider");
+    const speedVal = document.getElementById("speedVal");
+    speedSlider.addEventListener("input", (e) => {
+      speed = parseFloat(e.target.value);
+      speedVal.textContent = speed.toFixed(3);
+    });
+
+    const ampSlider = document.getElementById("ampSlider");
+    const ampVal = document.getElementById("ampVal");
+    ampSlider.addEventListener("input", (e) => {
+      amplitude = parseInt(e.target.value);
+      ampVal.textContent = amplitude + "px";
+    });
+
+    // TSX Code snippets
+    const COMPONENT_TSX = `"use client";
+
+import React, { useEffect, useRef } from "react";
+
+export interface GradientWaveProps {
+  className?: string;
+  colors?: string[];
+  speed?: number;
+  waveCount?: number;
+  amplitude?: number;
+  interactive?: boolean;
+}
+
+export function GradientWave({
+  className = "",
+  colors = [
+    "#38bdf8", // Sky blue 400
+    "#0ea5e9", // Sky blue 500
+    "#7dd3fc", // Sky blue 300
+    "#bae6fd", // Sky blue 200
+    "#ffffff", // Highlight white
+  ],
+  speed = 0.006,
+  waveCount = 4,
+  amplitude = 50,
+  interactive = true,
+}: GradientWaveProps) {
+  const canvasRef = useRef<HTMLCanvasElement | null>(null);
+  const mouseRef = useRef({ x: 0.5, y: 0.5, targetX: 0.5, targetY: 0.5 });
+
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return;
+
+    let animationFrameId: number;
+    let time = 0;
+
+    const handleResize = () => {
+      const rect = canvas.getBoundingClientRect();
+      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      canvas.width = rect.width * dpr;
+      canvas.height = rect.height * dpr;
+      ctx.scale(dpr, dpr);
+    };
+
+    handleResize();
+    window.addEventListener("resize", handleResize);
+
+    const handleMouseMove = (e: MouseEvent) => {
+      if (!interactive) return;
+      const rect = canvas.getBoundingClientRect();
+      mouseRef.current.targetX = Math.max(0, Math.min(1, (e.clientX - rect.left) / rect.width));
+      mouseRef.current.targetY = Math.max(0, Math.min(1, (e.clientY - rect.top) / rect.height));
+    };
+
+    if (interactive) window.addEventListener("mousemove", handleMouseMove);
+
+    const render = () => {
+      const { width, height } = canvas.getBoundingClientRect();
+      if (width === 0 || height === 0) {
+        animationFrameId = requestAnimationFrame(render);
+        return;
+      }
+
+      mouseRef.current.x += (mouseRef.current.targetX - mouseRef.current.x) * 0.05;
+      mouseRef.current.y += (mouseRef.current.targetY - mouseRef.current.y) * 0.05;
+      time += speed;
+
+      ctx.clearRect(0, 0, width, height);
+
+      // Radiant Background
+      const bgGrad = ctx.createLinearGradient(0, 0, width, height);
+      bgGrad.addColorStop(0, "#7dd3fc");
+      bgGrad.addColorStop(0.35, "#38bdf8");
+      bgGrad.addColorStop(0.7, "#60a5fa");
+      bgGrad.addColorStop(1, "#bae6fd");
+      ctx.fillStyle = bgGrad;
+      ctx.fillRect(0, 0, width, height);
+
+      // Ambient Glow
+      const glowX = width * (0.3 + mouseRef.current.x * 0.4);
+      const glowY = height * (0.2 + mouseRef.current.y * 0.3);
+      const ambientGlow = ctx.createRadialGradient(glowX, glowY, width * 0.05, glowX, glowY, width * 0.75);
+      ambientGlow.addColorStop(0, "rgba(255, 255, 255, 0.45)");
+      ambientGlow.addColorStop(0.5, "rgba(186, 230, 253, 0.2)");
+      ambientGlow.addColorStop(1, "rgba(255, 255, 255, 0)");
+      ctx.fillStyle = ambientGlow;
+      ctx.fillRect(0, 0, width, height);
+
+      // Wave layers
+      const count = Math.max(2, waveCount);
+      for (let i = 0; i < count; i++) {
+        const progress = i / (count - 1);
+        const waveBaseY = height * (0.38 + progress * 0.38);
+        const waveAmp = amplitude * (0.8 + Math.sin(time + i) * 0.25);
+        const freq = 0.0018 + i * 0.0006;
+        const phase = time * (0.8 + i * 0.4) + i * 2.1;
+        const mouseShift = (mouseRef.current.x - 0.5) * 60 * (1 - progress);
+
+        ctx.beginPath();
+        ctx.moveTo(0, height);
+
+        for (let x = 0; x <= width + 8; x += 8) {
+          const nx = x + mouseShift;
+          const y = waveBaseY +
+            Math.sin(nx * freq + phase) * waveAmp +
+            Math.cos(nx * freq * 0.65 - phase * 0.7) * (waveAmp * 0.45) +
+            Math.sin(nx * 0.004 + time * 0.5) * (waveAmp * 0.2);
+          ctx.lineTo(x, y);
+        }
+        ctx.lineTo(width, height);
+        ctx.closePath();
+
+        const waveGrad = ctx.createLinearGradient(0, waveBaseY - waveAmp, width, height);
+        const alpha = 0.55 + progress * 0.35;
+        waveGrad.addColorStop(0, hexToRgba(colors[i % colors.length], alpha * 0.75));
+        waveGrad.addColorStop(0.5, hexToRgba(colors[(i + 1) % colors.length], alpha));
+        waveGrad.addColorStop(1, hexToRgba(colors[colors.length - 1] || "#ffffff", alpha * 0.9));
+        ctx.fillStyle = waveGrad;
+        ctx.fill();
+
+        ctx.lineWidth = 1.5;
+        ctx.strokeStyle = \`rgba(255, 255, 255, \${0.25 + progress * 0.45})\`;
+        ctx.stroke();
+      }
+
+      // Foreground Ribbon Wave
+      const ribbonY = height * 0.78 + Math.sin(time * 0.7) * 20 - (mouseRef.current.y - 0.5) * 30;
+      ctx.beginPath();
+      ctx.moveTo(0, height);
+      ctx.lineTo(0, ribbonY + 40);
+      ctx.bezierCurveTo(
+        width * 0.25 + Math.cos(time * 0.5) * 40, ribbonY - 80 + Math.sin(time * 0.8) * 30,
+        width * 0.65 + Math.sin(time * 0.6) * 50, ribbonY - 40 - Math.cos(time * 0.5) * 25,
+        width, ribbonY + 20
+      );
+      ctx.lineTo(width, height);
+      ctx.closePath();
+
+      const ribbonGrad = ctx.createLinearGradient(0, ribbonY - 80, width, height);
+      ribbonGrad.addColorStop(0, "rgba(255, 255, 255, 0.95)");
+      ribbonGrad.addColorStop(0.35, "rgba(186, 230, 253, 0.85)");
+      ribbonGrad.addColorStop(0.7, "rgba(56, 189, 248, 0.75)");
+      ribbonGrad.addColorStop(1, "rgba(2, 132, 199, 0.65)");
+      ctx.fillStyle = ribbonGrad;
+      ctx.fill();
+
+      ctx.lineWidth = 2;
+      ctx.strokeStyle = "rgba(255, 255, 255, 0.9)";
+      ctx.stroke();
+
+      animationFrameId = requestAnimationFrame(render);
+    };
+
+    animationFrameId = requestAnimationFrame(render);
+
+    return () => {
+      cancelAnimationFrame(animationFrameId);
+      window.removeEventListener("resize", handleResize);
+      if (interactive) window.removeEventListener("mousemove", handleMouseMove);
+    };
+  }, [colors, speed, waveCount, amplitude, interactive]);
+
+  return (
+    <canvas
+      ref={canvasRef}
+      className={\`absolute inset-0 w-full h-full pointer-events-none -z-0 \${className}\`}
+      style={{ display: "block" }}
+    />
+  );
+}
+
+function hexToRgba(hex: string, alpha: number): string {
+  if (hex.startsWith("rgba")) return hex;
+  let clean = hex.replace("#", "");
+  if (clean.length === 3) clean = clean.split("").map(c => c + c).join("");
+  const num = parseInt(clean, 16);
+  return \`rgba(\${(num >> 16) & 255}, \${(num >> 8) & 255}, \${num & 255}, \${alpha})\`;
+}
+
+export default GradientWave;`;
+
+    const USAGE_TSX = `import { GradientWave } from "@/components/ui/gradient-wave";
+
+export default function DemoOne() {
+  return (
+    <div className="relative h-screen w-full flex items-center justify-center overflow-hidden">
+      <GradientWave />
+      <h1 className="text-black tracking-tighter text-7xl font-bold text-center z-10 select-none">
+        Gradient Wave
+      </h1>
+    </div>
+  );
+}`;
+
+    let currentTab = 'component';
+
+    function openModal() {
+      document.getElementById('codeModal').style.display = 'flex';
+      switchTab(currentTab);
+    }
+
+    function closeModal() {
+      document.getElementById('codeModal').style.display = 'none';
+    }
+
+    function switchTab(tab) {
+      currentTab = tab;
+      const compBtn = document.getElementById('tabComponent');
+      const usageBtn = document.getElementById('tabUsage');
+      const display = document.getElementById('codeDisplay');
+
+      if (tab === 'component') {
+        compBtn.classList.add('active');
+        usageBtn.classList.remove('active');
+        display.textContent = COMPONENT_TSX;
+      } else {
+        usageBtn.classList.add('active');
+        compBtn.classList.remove('active');
+        display.textContent = USAGE_TSX;
+      }
+    }
+
+    function copyCode() {
+      const text = currentTab === 'component' ? COMPONENT_TSX : USAGE_TSX;
+      navigator.clipboard.writeText(text).then(() => {
+        const btn = event.target;
+        const orig = btn.textContent;
+        btn.textContent = '✓ Copiado!';
+        setTimeout(() => { btn.textContent = orig; }, 2000);
+      });
+    }
+  </script>
+</body>
+</html>
