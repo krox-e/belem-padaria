@@ -75,6 +75,12 @@
     html {
       scroll-behavior: smooth;
       font-size: 16px;
+      width: 100%;
+      max-width: 100vw;
+      overflow-x: hidden;
+      overflow-y: auto;
+      -webkit-text-size-adjust: 100%;
+      touch-action: pan-y;
     }
 
     body {
@@ -82,8 +88,41 @@
       background-color: var(--bg-cream);
       color: var(--text-dark);
       line-height: 1.6;
+      width: 100%;
+      max-width: 100vw;
       overflow-x: hidden;
+      position: relative;
       -webkit-font-smoothing: antialiased;
+      touch-action: pan-y;
+    }
+
+    /* Trava de overflow estrita contra sambamento lateral */
+    section,
+    .hero-section,
+    .stats-strip,
+    .about-section,
+    .strawberry-banner,
+    .menu-section,
+    .custom-order-section,
+    .instagram-showcase-section,
+    .reviews-section,
+    .location-section,
+    .hiring-lp-banner,
+    .site-footer {
+      width: 100%;
+      max-width: 100%;
+      overflow-x: clip;
+      overflow-x: hidden;
+      box-sizing: border-box;
+    }
+
+    /* Permitir deslize horizontal apenas onde expressamente desejado */
+    .menu-tabs,
+    .menu-grid,
+    .carousel-dots,
+    .mobile-nav-content,
+    .mobile-nav-drawer {
+      touch-action: pan-x pan-y !important;
     }
 
     img {
@@ -2674,6 +2713,16 @@
        TABLETS RETRATO (<= 768px)
        ------------------------------------------------------------------------- */
     @media (max-width: 768px) {
+      /* Elimina qualquer deslocamento lateral nas animações no mobile */
+      .scroll-reveal-left,
+      .scroll-reveal-right {
+        transform: translateY(22px) !important;
+      }
+      .scroll-reveal-left.revealed,
+      .scroll-reveal-right.revealed {
+        transform: translateY(0) !important;
+      }
+
       :root {
         --header-height: 66px;
       }
@@ -5698,16 +5747,17 @@
         progressBar.style.transform = `scaleX(${clamped})`;
       }
 
-      if (typeof Lenis !== 'undefined') {
+      const isMobileTouch = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0) || (window.innerWidth <= 768);
+
+      if (typeof Lenis !== 'undefined' && !isMobileTouch) {
         try {
           lenisInstance = new Lenis({
-            duration: 1.2,
-            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // Curva de desaceleração exponencial sedosa
+            duration: 1.1,
+            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
             direction: 'vertical',
             gestureDirection: 'vertical',
             smooth: true,
-            smoothTouch: false, // Mantém resposta rápida e nativa no toque mobile
-            touchMultiplier: 1.8,
+            smoothTouch: false,
             wheelMultiplier: 1.0,
             infinite: false
           });
